@@ -1,0 +1,422 @@
+syntax = "proto3";
+
+import "sl_mpeg_ts.proto";
+import "sl_remuxer_model.proto";
+
+service sl_graph_service_proto
+{
+    rpc create_graph(sl_graph_proto) returns (sl_graph_proto) {}
+    rpc get_graph_list(sl_empty_proto) returns (sl_graph_list_proto) {}
+    rpc delete_graph(sl_graph_proto) returns (sl_empty_proto) {}
+
+    // encoder & decoder
+    rpc get_graph_input_device_list(sl_graph_proto) returns (sl_device_list_proto) {}
+    rpc get_graph_output_device_list(sl_graph_proto) returns (sl_device_list_proto) {}
+
+    rpc add_input_device_to_graph(sl_graph_device_proto) returns (sl_device_proto) {}
+    rpc delete_input_device_from_graph(sl_graph_device_proto) returns (sl_empty_proto) {}
+
+    rpc add_output_device_to_graph(sl_graph_device_proto) returns (sl_device_proto) {}
+    rpc delete_output_device_from_graph(sl_graph_device_proto) returns (sl_empty_proto) {}
+    rpc set_output_device_settings(sl_graph_device_proto) returns (sl_device_proto) {}
+
+    rpc get_input_program_list(sl_graph_device_proto) returns (sl_input_program_list_proto) {}
+    rpc set_input_program_settings(sl_graph_input_program_proto) returns (sl_input_program_proto) {}
+
+    rpc clone_input_program(sl_graph_input_program_proto) returns (sl_input_program_proto) {}
+
+    rpc add_device_to_program(sl_graph_program_device_proto) returns (sl_output_program_proto) {}
+    rpc delete_device_from_program(sl_graph_program_device_proto) returns (sl_empty_proto) {}
+    rpc get_output_program_list_from_program(sl_graph_input_program_proto) returns (sl_output_program_list_proto) {}
+    rpc set_output_program_settings(sl_graph_output_program_proto) returns (sl_empty_proto) {}
+
+    rpc add_encoder_to_program(sl_graph_program_encoder_proto) returns (sl_encoder_proto) {}
+    rpc delete_encoder_from_program(sl_graph_program_encoder_proto) returns (sl_empty_proto) {}
+    rpc get_encoder_list_from_program(sl_graph_input_program_proto) returns (sl_encoder_list_proto) {}
+    rpc set_encoder_settings(sl_graph_encoder_proto) returns (sl_empty_proto) {}
+
+    rpc add_device_to_encoder(sl_graph_encoder_device_proto) returns (sl_output_program_proto) {}
+    rpc delete_device_from_encoder(sl_graph_encoder_device_proto) returns (sl_empty_proto) {}
+    rpc get_output_program_list_from_encoder(sl_graph_encoder_proto) returns (sl_output_program_list_proto) {}
+
+    rpc get_input_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+    rpc get_output_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+
+    rpc start_graph(sl_graph_proto) returns (sl_empty_proto) {}
+    rpc stop_graph(sl_graph_proto) returns (sl_empty_proto) {}
+
+    rpc start_parsing(sl_graph_proto) returns (sl_empty_proto) {}
+    rpc is_parsing_ready(sl_graph_proto) returns (sl_parsing_state_proto) {}
+    rpc stop_parsing(sl_graph_proto) returns (sl_empty_proto) {}
+
+    rpc get_device_statistics(sl_graph_device_proto) returns (sl_statistics_proto) {}
+    rpc get_encoder_statistics(sl_graph_encoder_proto) returns (sl_statistics_proto) {}
+
+    rpc get_affinity_mask(sl_graph_proto) returns (sl_affinity_mask_proto) {}
+    rpc set_affinity_mask(sl_graph_affinity_mask_proto) returns (sl_affinity_mask_proto) {}
+
+    rpc get_graph_log(sl_graph_proto) returns (sl_log_proto) {}
+    rpc clear_log(sl_graph_proto) returns (sl_empty_proto) {}
+
+    rpc get_encoder_support(sl_empty_proto) returns (sl_encoder_support_proto) {}
+
+    // remuxer
+    rpc get_remuxer_input_info(sl_graph_device_proto) returns (sl_input_info_proto) {}
+
+    rpc get_remuxer_reserve(sl_graph_proto) returns (sl_reserve_list_proto) {}
+    rpc set_remuxer_reserve(sl_graph_reserve_proto) returns (sl_empty_proto) {}
+
+    // gochs
+    rpc get_remuxer_gochs(sl_graph_proto) returns (sl_reserve_list_proto) {}
+    rpc set_remuxer_gochs(sl_graph_reserve_proto) returns (sl_empty_proto) {}
+    //
+
+    rpc get_remuxer_model(sl_graph_proto) returns (sl_model_proto) {}
+    rpc set_remuxer_model(sl_graph_remuxer_model_proto) returns (sl_model_proto) {}
+
+    rpc get_remuxer_statistics(sl_graph_proto) returns (sl_statistics_proto) {}
+}
+
+message sl_empty_proto
+{
+}
+
+enum sl_graph_state_proto
+{
+    sl_graph_runing = 0;
+    sl_graph_stoped = 1;
+    sl_graph_parsing = 2;
+    sl_graph_creating = 3;
+    sl_graph_deleting = 4;
+    sl_graph_error = 5;
+    sl_graph_stored = 6;
+}
+
+enum sl_graph_type_proto
+{
+    sl_encoder_decoder  = 0;
+    sl_remuxer          = 1;
+}
+
+message sl_graph_proto
+{
+    string name                 = 1;
+    string guid                 = 2;
+    sl_graph_state_proto state  = 3;
+    string host                 = 4;
+    int32 port                  = 5;
+    sl_graph_type_proto type    = 6;
+}
+
+message sl_graph_list_proto
+{
+    repeated sl_graph_proto list = 1;
+}
+
+message sl_configurator_info_proto
+{
+    string dll_name = 1;
+    string class_name = 2;
+}
+
+message sl_ll_device_info_proto
+{
+    string template = 1;
+
+    enum sl_ll_device_type_proto
+    {
+        sl_unknown = 0;
+    }
+
+    sl_ll_device_type_proto type = 2;
+}
+
+message sl_device_proto
+{
+    string display_name = 1;
+
+    enum sl_device_type_proto
+    {
+        sl_sdi_device_type = 0;
+        sl_mpeg_ts_device_type = 1;
+        sl_es_device_type = 2;
+    }
+
+    sl_device_type_proto type = 2;
+
+    repeated sl_ll_device_info_proto ll_device_info = 3;
+    string settings = 4;
+    sl_configurator_info_proto configurator_info = 5;
+
+    string guid = 6;
+}
+
+message sl_device_list_proto
+{
+    repeated sl_device_proto list = 1;
+}
+
+enum sl_stream_type_proto
+{
+    video_stream        = 0;
+    audio_stream        = 1;
+    teletext_stream     = 2;
+    subtuitle_stream    = 3;
+    scte104_stream      = 4;
+    scte35_stream       = 5;
+    mpeg_ts_stream      = 6;
+
+    unknown_stream      = 0xFF;
+}
+
+message sl_stream_proto
+{
+    string guid = 1;
+    string lang = 2;
+    bool    use = 3;
+
+    sl_stream_type_proto type = 4;
+
+    //for es stream
+    uint32 stream_id = 5;
+    uint32 stream_pid = 6;
+
+    string format = 7;
+
+    uint32 out_stream_pid = 8;
+}
+
+message sl_input_program_proto
+{
+    string guid = 1;
+    string name = 2;
+    uint32 number = 3;
+
+    repeated sl_stream_proto streams = 4;
+    string clone = 5;
+}
+
+message sl_input_program_list_proto
+{
+    repeated sl_input_program_proto list = 1;
+}
+
+message sl_graph_device_proto
+{
+    sl_graph_proto graph = 1;
+    sl_device_proto device = 2;
+}
+
+message sl_parsing_state_proto
+{
+    bool is_parsing = 1;
+}
+
+enum sl_video_encoder_type_proto
+{
+    sl_mc_mpeg_encoder      = 0;
+    sl_intel_mpeg_encoder   = 1;
+    sl_mc_avc_encoder       = 2;
+    sl_intel_avc_encoder    = 3;
+    sl_nvidia_avc_encoder   = 4;
+    sl_mc_hevc_encoder      = 5;
+    sl_intel_hevc_encoder   = 6;
+    sl_nvidia_hevc_encoder  = 7;
+}
+
+enum sl_audio_encoder_type_proto
+{
+    sl_mc_mpeg1_encoder = 0;
+    sl_mc_aac_encoder   = 1;
+    sl_mc_ac3_encoder   = 2;
+}
+
+message sl_encoder_proto
+{
+    string guid = 1;
+    string name = 2;
+
+    sl_video_encoder_type_proto video = 3;
+    sl_audio_encoder_type_proto audio = 4;
+
+    string settings = 5;
+}
+
+message sl_encoder_list_proto
+{
+    repeated sl_encoder_proto list = 1;
+}
+
+message sl_graph_program_encoder_proto
+{
+    sl_graph_proto          graph           = 1;
+    sl_input_program_proto  input_program   = 2;
+    sl_encoder_proto        encoder         = 3;
+}
+
+message sl_output_program_proto
+{
+    string guid             = 1;
+    string name             = 2;
+    uint32 number           = 3;
+    uint32 pid_pcr          = 4;
+    uint32 program_id       = 5;
+    string provider_name    = 6;
+
+    sl_device_proto device = 7;
+    repeated sl_stream_proto streams = 8;
+}
+
+message sl_output_program_list_proto
+{
+    repeated sl_output_program_proto list = 1;
+}
+
+message sl_graph_program_device_proto
+{
+    sl_graph_proto          graph           = 1;
+    sl_input_program_proto  input_program   = 2;
+    sl_device_proto         device          = 3;
+}
+
+message sl_graph_encoder_device_proto
+{
+    sl_graph_proto          graph       = 1;
+    sl_encoder_proto        encoder     = 2;
+    sl_device_proto         device      = 3;
+}
+
+message sl_graph_encoder_proto
+{
+    sl_graph_proto          graph       = 1;
+    sl_encoder_proto        encoder     = 2;
+}
+
+message sl_graph_input_program_proto
+{
+    sl_graph_proto          graph           = 1;
+    sl_input_program_proto  input_program   = 2;
+}
+
+message sl_graph_output_program_proto
+{
+    sl_graph_proto          graph           = 1;
+    sl_output_program_proto output_program  = 2;
+}
+
+message sl_enum_proto
+{
+    string name     = 1;
+    string value    = 2;
+}
+
+message sl_param_proto
+{
+    string id       = 1;
+    string name     = 2;
+    string value    = 3;
+    string desc     = 4;
+
+    repeated sl_enum_proto enums = 5;
+}
+
+message sl_statistic_proto
+{
+    string name = 1;
+    repeated sl_param_proto params = 2;
+}
+
+message sl_statistics_proto
+{
+    repeated sl_statistic_proto list = 1;
+}
+
+message sl_setting_proto
+{
+    string name = 1;
+    repeated sl_param_proto params = 2;
+}
+
+message sl_settings_proto
+{
+    repeated sl_setting_proto list = 1;
+}
+
+message sl_affinity_mask_proto
+{
+    repeated bool affinity = 1;
+}
+
+message sl_graph_affinity_mask_proto
+{
+    sl_graph_proto graph = 1;
+    sl_affinity_mask_proto affinity = 2;
+}
+
+message sl_log_proto
+{
+    repeated string list = 1;
+}
+
+message sl_graph_log_proto
+{
+    sl_graph_proto graph = 1;
+    sl_log_proto log = 2;
+}
+
+message sl_encoder_support_proto
+{
+    repeated sl_video_encoder_type_proto video = 1;
+    repeated sl_audio_encoder_type_proto audio = 2;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+message sl_input_info_proto
+{
+    sl_input_pat_proto      pat = 1;
+
+    sl_cat_proto            cat = 2;
+    sl_tot_proto            tot = 3;
+    sl_tdt_proto            tdt = 4;
+
+    sl_input_sdt_proto      sdt = 5;
+    sl_input_nit_proto      nit = 7;
+    sl_input_eit_proto      eit = 8;
+}
+
+message sl_reserve_proto
+{
+    enum sl_state_proto
+    {
+        sl_normal = 0;
+        sl_reserve = 1;
+        sl_gochs = 2;
+    }
+
+    sl_state_proto  state       = 1;
+    uint32          dst_pid     = 2;
+    uint32          dst_number  = 3;
+}
+
+message sl_reserve_list_proto
+{
+    repeated sl_reserve_proto list = 1;
+}
+
+message sl_graph_reserve_proto
+{
+    sl_graph_proto      graph   = 1;
+    sl_reserve_proto    reserve = 2;
+}
+
+message sl_graph_reserve_list_proto
+{
+    sl_graph_proto          graph   = 1;
+    sl_reserve_list_proto   list    = 2;
+}
+
+message sl_graph_remuxer_model_proto
+{
+    sl_graph_proto          graph   = 1;
+    sl_model_proto          model   = 2;
+}

@@ -1,0 +1,25 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: sl-web 
+spec:
+  selector:
+    matchLabels:
+      app: sl-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sl-web
+    spec:
+      containers:
+      - name: sl-web-nginx
+        image: sl-web-nginx:latest
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 80 
+      - name: sl-web-php 
+        image: sl-web-php:latest 
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 9000

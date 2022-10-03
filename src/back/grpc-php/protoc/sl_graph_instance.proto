@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+import "sl_graph_service.proto";
+
+service sl_graph_instance_proto
+{
+    rpc save_graph(sl_empty_proto) returns (sl_graph_proto) {}
+    rpc load_graph(sl_graph_proto) returns (sl_empty_proto) {}
+
+    rpc get_input_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+    rpc get_output_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+
+    rpc add_input_device(sl_device_proto) returns (sl_device_proto) {}
+    rpc delete_input_device(sl_device_proto) returns (sl_empty_proto) {}
+
+    rpc add_output_device(sl_device_proto) returns (sl_device_proto) {}
+    rpc delete_output_device(sl_device_proto) returns (sl_empty_proto) {}
+    rpc set_output_device_settings(sl_device_proto) returns (sl_device_proto) {}
+
+    rpc get_input_program_list(sl_device_proto) returns (sl_input_program_list_proto) {}
+    rpc set_input_program_settings(sl_input_program_proto) returns (sl_input_program_proto) {}
+
+    rpc clone_input_program(sl_input_program_proto) returns (sl_input_program_proto) {}
+
+    rpc add_device_to_program(sl_input_program_device_proto) returns (sl_output_program_proto) {}
+    rpc delete_device_from_program(sl_input_program_device_proto) returns (sl_empty_proto) {}
+    rpc get_output_program_list_from_program(sl_input_program_proto) returns (sl_output_program_list_proto) {}
+    rpc set_output_program_settings(sl_output_program_proto) returns (sl_empty_proto) {}
+
+    rpc add_encoder_to_program(sl_input_program_encoder_proto) returns (sl_encoder_proto) {}
+    rpc delete_encoder_from_program(sl_input_program_encoder_proto) returns (sl_empty_proto) {}
+    rpc get_encoder_list_from_program(sl_input_program_proto) returns (sl_encoder_list_proto) {}
+    rpc set_encoder_settings(sl_encoder_proto) returns (sl_empty_proto) {}
+
+    rpc add_device_to_encoder(sl_encoder_device_proto) returns (sl_output_program_proto) {}
+    rpc delete_device_from_encoder(sl_encoder_device_proto) returns (sl_empty_proto) {}
+    rpc get_output_program_list_from_encoder(sl_encoder_proto) returns (sl_output_program_list_proto) {}
+
+    rpc get_state(sl_empty_proto) returns (sl_graph_proto) {}
+    rpc start(sl_empty_proto) returns (sl_empty_proto) {}
+    rpc stop(sl_empty_proto) returns (sl_empty_proto) {}
+
+    rpc start_parsing(sl_empty_proto) returns (sl_empty_proto) {}
+    rpc is_parsing_ready(sl_empty_proto) returns (sl_parsing_state_proto) {}
+    rpc stop_parsing(sl_empty_proto) returns (sl_empty_proto) {}
+
+    rpc get_device_statistics(sl_device_proto) returns (sl_statistics_proto) {}
+    rpc get_encoder_statistics(sl_encoder_proto) returns (sl_statistics_proto) {}
+
+    rpc get_affinity_mask(sl_empty_proto) returns (sl_affinity_mask_proto) {}
+    rpc set_affinity_mask(sl_affinity_mask_proto) returns (sl_affinity_mask_proto) {}
+}
+
+message sl_input_program_device_proto
+{
+    sl_input_program_proto  input_program   = 1;
+    sl_device_proto         device          = 2;
+}
+
+message sl_input_program_encoder_proto
+{
+    sl_input_program_proto  input_program   = 1;
+    sl_encoder_proto        encoder         = 2;
+}
+
+message sl_encoder_device_proto
+{
+    sl_encoder_proto    encoder = 1;
+    sl_device_proto     device  = 2;
+}

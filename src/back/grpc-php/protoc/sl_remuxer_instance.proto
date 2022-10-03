@@ -1,0 +1,42 @@
+ syntax = "proto3";
+
+import "sl_graph_service.proto";
+import "sl_mpeg_ts.proto";
+import "sl_remuxer_model.proto";
+
+service sl_remuxer_instance_proto
+{
+    rpc add_input_device(sl_device_proto) returns (sl_device_proto) {}
+    rpc delete_input_device(sl_device_proto) returns (sl_empty_proto) {}
+    rpc get_input_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+
+    rpc add_output_device(sl_device_proto) returns (sl_device_proto) {}
+    rpc delete_output_device(sl_device_proto) returns (sl_empty_proto) {}
+    rpc get_output_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+
+    rpc get_device_statistics(sl_device_proto) returns (sl_statistics_proto) {}
+
+    rpc get_input_info(sl_device_proto) returns (sl_input_info_proto) {}
+
+    // reserve
+    rpc get_reserve_info(sl_empty_proto) returns (sl_reserve_list_proto) {}
+    rpc set_reserve_info(sl_reserve_proto) returns (sl_empty_proto) {}
+    //
+
+    // gochs
+    rpc get_gochs_info(sl_empty_proto) returns (sl_reserve_list_proto) {}
+    rpc set_gochs_info(sl_reserve_proto) returns (sl_empty_proto) {}
+    //
+
+    rpc get_model(sl_empty_proto) returns (sl_model_proto) {}
+    rpc set_model(sl_model_proto) returns (sl_model_proto) {}
+
+    rpc get_state(sl_empty_proto) returns (sl_graph_proto) {}
+    rpc start(sl_empty_proto) returns (sl_empty_proto) {}
+    rpc stop(sl_empty_proto) returns (sl_empty_proto) {}
+
+    rpc get_affinity_mask(sl_empty_proto) returns (sl_affinity_mask_proto) {}
+    rpc set_affinity_mask(sl_affinity_mask_proto) returns (sl_affinity_mask_proto) {}
+
+    rpc get_remuxer_statistics(sl_empty_proto) returns (sl_statistics_proto) {}
+}

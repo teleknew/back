@@ -1,0 +1,161 @@
+syntax = "proto3";
+
+enum sl_reserve_state_proto
+{
+    sl_normal = 0;
+    sl_reserve = 1;
+    sl_gochs = 2;
+}
+
+message sl_pair_model
+{
+    uint32 first    = 1;
+    uint32 second   = 2;
+}
+
+enum sl_table_state_proto
+{
+    e_none      = 0;
+    e_generate  = 1;
+    e_passthru  = 2;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// PAT PMT
+message sl_pmt_model_proto
+{
+    sl_pair_model        src = 1;               // src pid, number
+    sl_pair_model        dst = 2;               // dst pid, number
+    sl_reserve_state_proto  reserve = 3;
+    sl_reserve_state_proto  status = 4;
+
+    map<uint32, uint32>     streams = 5;        // src pid, dst pid
+    bool                    auto_to_reserve = 6;
+}
+
+message sl_pmts_model_proto
+{
+    repeated sl_pmt_model_proto pmts = 1;
+}
+
+message sl_pat_model_proto
+{
+    map<string, sl_pmts_model_proto> inputs = 1;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// SDT
+message sl_sdts_sds_model
+{
+    repeated sl_pair_model src_dst = 1;         // src number, dst number
+}
+
+message sl_sdt_model_proto
+{
+    map<string, sl_sdts_sds_model>   actual = 1;
+    map<string, sl_sdts_sds_model>   other = 2;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// NIT
+message sl_nits_ts_model_proto
+{
+    repeated sl_pair_model src = 1; // src ts_id, src on_id
+    repeated sl_pair_model dst = 2; // dst ts_id, dst on_id
+}
+
+message sl_nit_model_proto
+{
+    map<string, sl_nits_ts_model_proto>   actual = 1;
+    map<string, sl_nits_ts_model_proto>   other = 2;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// EIT
+message sl_eit_service_model_proto
+{
+    map<uint32, uint32> services = 1; // src service_id, dst service_id
+    //uint64              repetition = 2;
+}
+
+message sl_eit_model_proto
+{
+    sl_table_state_proto                          state = 1;
+    string                                        path = 2;
+    uint64                                        max_bitrate = 3;
+
+    uint64                                        actual_repetition = 4;
+    uint64                                        other_repetition = 5;
+    uint64                                        actual_schedule_repetition = 6;
+    uint64                                        other_schedule_repetition = 7;
+
+    map<string, sl_eit_service_model_proto>       actual = 8;
+    map<string, sl_eit_service_model_proto>       other = 9;
+    map<string, sl_eit_service_model_proto>       actual_schedule = 10;
+    map<string, sl_eit_service_model_proto>       other_schedule = 11;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// TOT
+message sl_tot_model_proto
+{
+    string  input = 1;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// TDT
+message sl_tdt_model_proto
+{
+    string  input = 1;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// CAT
+message sl_cat_model_proto
+{
+    string  input = 1;
+}
+////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////
+// Other_pid
+message sl_other_pid_pids_proto
+{
+    map<uint32, uint32> src_dst = 1;
+}
+
+message sl_other_pid_proto
+{
+    map<string, sl_other_pid_pids_proto> input = 1;
+}
+
+message sl_model_proto
+{
+    uint32 transport_stream_id = 1;
+    uint32 original_network_id = 2;
+
+    uint32 actual_network_id = 3;
+    uint32 other_network_id = 4;
+
+    uint32 other_transport_stream_id = 5;
+    uint32 other_original_network_id = 6;
+
+    uint64 bitrate = 7;
+
+    sl_pat_model_proto pat = 8;
+    sl_cat_model_proto cat = 9;
+    sl_tdt_model_proto tdt = 10;
+    sl_tot_model_proto tot = 11;
+    sl_sdt_model_proto sdt = 12;
+    sl_nit_model_proto nit = 13;
+    sl_eit_model_proto eit = 14;
+    sl_other_pid_proto other_pid = 15;
+
+    bool vbr = 16;
+}
