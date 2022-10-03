@@ -20,33 +20,31 @@ class One /*extends DbPdo*/
         try {
             if ($Data['get_data'] == 'all') {
 
-                $SelectIn = 'SELECT * FROM interface.physical_inputs WHERE "type" = :type';
-                $SelectInParams = [
-                    ":type" => 1
-                ];
-
-                $SelectOut = 'SELECT * FROM interface.physical_inputs WHERE "type" = :type';
-                $SelectOutParams = [
-                    ":type" => 2
-                ];
-
-                $SelectEth = 'SELECT * FROM interface.physical_inputs WHERE "type" = :type';
-                $SelectEthParams = [
-                    ":type" => 3
+                $SelectType = 'SELECT * FROM interface.type_physical_inputs WHERE id > :id';
+                $SelectTypeParams = [
+                    ":id" => 0
                 ];
 
                 $db = DbPdo::getInstance();
-                $SelectResIn = $db->queryFetched($SelectIn, $SelectInParams);
-                //print_r($SelectResIn);
-                $SelectResOut = $db->queryFetched($SelectOut, $SelectOutParams);
-                $SelectResEth = $db->queryFetched($SelectEth, $SelectEthParams);
-                $Result['Result'] = [
-                    'in' => $SelectResIn,
-                    'out' => $SelectResOut,
-                    'Eth' => $SelectResEth
-                ];
-                //$Result['Result']['out'] = $SelectResOut;
-                //$Result['Result']['eth'] = $SelectResEth;
+                $SelectResTypes = $db->queryFetched($SelectType, $SelectTypeParams);
+
+                $Result['Result'] = [];
+
+                foreach($SelectResTypes as $SelectResType){
+
+                    $Select = 'SELECT * FROM interface.physical_inputs WHERE "type" = :type';
+                    $SelectParams = [
+                        ":type" => $SelectResType['id']
+                    ];
+
+                    $SelectRes = $db->queryFetched($Select, $SelectParams);
+
+                    $Result['Result'][] = [
+                      'id' => $SelectResType['id'],
+                      'description' => $SelectResType['description'],
+                      'ports' => $SelectRes
+                    ];
+                }
             }
         }
         catch(\Exception $e)
