@@ -3,14 +3,14 @@ services:
   php:
     image: php:fpm-alpine
     volumes:
-      - './src:/var/www/html'
+      - './:/var/www/html'
 
   nginx:
     image: nginx:latest
     ports:
       - 80:80
     volumes:
-      - './src:/var/www/html'
+      - './:/var/www/html'
       - './docker/nginx/conf.d:/etc/nginx/conf.d'
 
   postgres:
