@@ -6,6 +6,7 @@ use Core\DbModel;
 use Helpers\Helpers;
 use Db\DbPdo;
 use sl_graph_service_protoClient as protoClient;
+use sl_empty_proto;
 
 class LogicalInputs
 {
