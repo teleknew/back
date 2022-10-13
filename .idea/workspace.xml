@@ -4,6 +4,9 @@
     <list default="true" id="1fdef31c-ac09-437a-af25-add0c5ae04b0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +96,7 @@
       <workItem from="1665668750518" duration="185000" />
       <workItem from="1665680883961" duration="1566000" />
       <workItem from="1665682758397" duration="7510000" />
-      <workItem from="1665691320299" duration="3752000" />
+      <workItem from="1665691320299" duration="5238000" />
     </task>
     <servers />
   </component>

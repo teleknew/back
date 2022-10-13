@@ -8,7 +8,7 @@
             "Models\\": "Models",
             "Helpers\\": "Helpers",
             "Db\\": "Db",
-            "": "sl_proto/"
+            "": "sl_proto"
         }
     },
     "authors": [
