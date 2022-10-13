@@ -5,6 +5,30 @@ return [
         'action'     => 'saveList',
         'pathType'   => 1,
     ],
+    'api/logicalInputs/list'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'loadList',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalInputs/create'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'createStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalInputs/edit'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'editStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalInputs/delete'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'deleteStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',
