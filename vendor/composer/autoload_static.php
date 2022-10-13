@@ -15,6 +15,12 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         array (
             'Helpers\\' => 8,
         ),
+        'G' => 
+        array (
+            'Grpc\\' => 5,
+            'Google\\Protobuf\\' => 16,
+            'GPBMetadata\\Google\\Protobuf\\' => 28,
+        ),
         'D' => 
         array (
             'Db\\' => 3,
@@ -35,6 +41,18 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         array (
             0 => __DIR__ . '/../..' . '/Helpers',
         ),
+        'Grpc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
+        ),
+        'Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
+        ),
+        'GPBMetadata\\Google\\Protobuf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
+        ),
         'Db\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Db',
@@ -49,6 +67,10 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/../..' . '/sl_proto',
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -58,6 +80,7 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$classMap;
 
         }, null, ClassLoader::class);

@@ -7,7 +7,8 @@
             "Core\\": "Core",
             "Models\\": "Models",
             "Helpers\\": "Helpers",
-            "Db\\": "Db"
+            "Db\\": "Db",
+            "": "sl_proto/"
         }
     },
     "authors": [
@@ -16,6 +17,9 @@
             "email": "a@a.a"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "google/protobuf": "^3.21",
+        "grpc/grpc": "^1.42"
+    },
+    "minimum-stability": "dev"
 }

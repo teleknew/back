@@ -23,6 +23,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/logicalInputs/programs'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'loadPrograms',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/logicalInputs/delete'                                        => [
         'controller' => 'logicalInputs',
         'action'     => 'deleteStream',

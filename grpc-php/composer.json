@@ -2,7 +2,7 @@
     "name": "softlab-nsk/grpc-php",
     "autoload": {
         "psr-4": {
-            "": "sl_proto/"
+            "": "../sl_proto/"
         }
     },
     "authors": [
