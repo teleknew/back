@@ -8,6 +8,11 @@ use Db\DbPdo;
 use sl_graph_service_protoClient as protoClient;
 use sl_empty_proto;
 use sl_graph_list_proto;
+use sl_device_list_proto;
+use sl_graph_proto;
+use sl_device_proto;
+use sl_input_info_proto;
+use sl_graph_device_proto;
 
 class LogicalInputs
 {
