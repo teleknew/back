@@ -22,8 +22,9 @@ class Router
     public function __construct()
     {
         //   Load Routes   //
-        //$this->url = trim($_SERVER['REQUEST_URI'], '/');
-        $this->url = 'api/pageOne/save';
+        $this->url = trim($_SERVER['REQUEST_URI'], '/');
+        //$this->url = 'api/logicalInputs/create'; // - создаем поток
+        //$this->url = 'api/logicalInputs/list'; // - список потоков
         $this->routes = require 'conf/routes.php';
     }
 
