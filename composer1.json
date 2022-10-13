@@ -3,6 +3,11 @@
     "description": "a",
     "autoload": {
         "psr-4": {
+            "Controllers\\": "Controllers",
+            "Core\\": "Core",
+            "Models\\": "Models",
+            "Helpers\\": "Helpers",
+            "Db\\": "Db",
             "": "sl_proto"
         }
     },
