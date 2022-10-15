@@ -7,15 +7,40 @@ namespace Composer\Autoload;
 class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
 {
     public static $prefixLengthsPsr4 = array (
+        'M' => 
+        array (
+            'Models\\' => 7,
+        ),
+        'H' => 
+        array (
+            'Helpers\\' => 8,
+        ),
         'G' => 
         array (
             'Grpc\\' => 5,
             'Google\\Protobuf\\' => 16,
             'GPBMetadata\\Google\\Protobuf\\' => 28,
         ),
+        'D' => 
+        array (
+            'Db\\' => 3,
+        ),
+        'C' => 
+        array (
+            'Core\\' => 5,
+            'Controllers\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Models',
+        ),
+        'Helpers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Helpers',
+        ),
         'Grpc\\' => 
         array (
             0 => __DIR__ . '/..' . '/grpc/grpc/src/lib',
@@ -27,6 +52,18 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         'GPBMetadata\\Google\\Protobuf\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
+        ),
+        'Db\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Db',
+        ),
+        'Core\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Core',
+        ),
+        'Controllers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Controllers',
         ),
     );
 

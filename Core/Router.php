@@ -22,10 +22,10 @@ class Router
     public function __construct()
     {
         //   Load Routes   //
-        //$this->url = trim($_SERVER['REQUEST_URI'], '/');
-        $this->url = 'api/logicalInputs/create'; // - создаем поток
-        $this->url = 'api/logicalInputs/list'; // - список потоков
-        $this->url = 'api/logicalInputs/programs'; // - список потоков
+        //$this->url = 'api/logicalInputs/create'; // - создаем поток
+        //$this->url = 'api/logicalInputs/list'; // - список потоков
+        //$this->url = 'api/logicalInputs/programs'; // - список потоков
+        $this->url = trim($_SERVER['REQUEST_URI'], '/');
         $this->routes = require 'conf/routes.php';
     }
 
