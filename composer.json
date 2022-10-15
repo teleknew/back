@@ -19,7 +19,7 @@
     ],
     "require": {
         "google/protobuf": "^3.21",
-        "grpc/grpc": "^1.42"
+        "grpc/grpc": "^1.41"
     },
     "minimum-stability": "dev"
 }
