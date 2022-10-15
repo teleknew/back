@@ -130,6 +130,7 @@ abstract class AbstractCall
             return;
         }
         list($className, $deserializeFunc) = $this->deserialize;
+        print_r($className."\n");
         $obj = new $className();
         $obj->mergeFromString($value);
         return $obj;

@@ -1,18 +1,20 @@
 {
-    "name": "softlab-nsk/grpc-php",
+    "name": "aa/a",
+    "description": "a",
     "autoload": {
         "psr-4": {
-            "": "../sl_proto/"
+            "": "sl_proto"
         }
     },
     "authors": [
         {
-            "name": "Nikita Shuklin",
-            "email": "shuklin@sl.iae.nsk.su"
+            "name": "a a",
+            "email": "a@a.a"
         }
     ],
     "require": {
         "google/protobuf": "^3.21",
         "grpc/grpc": "^1.42"
-    }
+    },
+    "minimum-stability": "dev"
 }

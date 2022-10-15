@@ -1,153 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1fdef31c-ac09-437a-af25-add0c5ae04b0" name="Changes" comment="">
+    <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/composer2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/back.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_10_2022_1_04_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_10_2022_1_04_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_14_10_2022_1_04__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/.idea/grpc-php1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/example_get_devices.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/autoload.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/ClassLoader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/InstalledVersions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/autoload_classmap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/autoload_namespaces.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/autoload_psr4.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/autoload_real.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/autoload_static.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/installed.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/installed.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/composer/platform_check.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Any.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Duration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/FieldMask.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/GPBEmpty.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Internal/Descriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/SourceContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Struct.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Timestamp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/GPBMetadata/Google/Protobuf/Wrappers.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Any.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/BoolValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/BytesValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Descriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/DescriptorPool.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/DoubleValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Duration.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Enum.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/EnumDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/EnumValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/EnumValueDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Field.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Field/Cardinality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Field/Kind.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/FieldDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/FieldMask.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Field_Cardinality.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Field_Kind.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/FloatValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/GPBEmpty.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Int32Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Int64Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/AnyBase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/CodedInputStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/CodedOutputStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/Descriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorPool.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorProto/ExtensionRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorProto/ReservedRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorProto_ExtensionRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/DescriptorProto_ReservedRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumBuilderContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumDescriptorProto/EnumReservedRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumDescriptorProto_EnumReservedRange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumValueDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/EnumValueOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/ExtensionRangeOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptorProto/Label.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptorProto/Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptorProto_Label.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldDescriptorProto_Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldOptions/CType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldOptions/JSType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldOptions_CType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FieldOptions_JSType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileDescriptorSet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileOptions/OptimizeMode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/FileOptions_OptimizeMode.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBDecodeException.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBJsonWire.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBLabel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBUtil.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBWire.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GPBWireType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GeneratedCodeInfo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GeneratedCodeInfo/Annotation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GeneratedCodeInfo_Annotation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/GetPublicDescriptorTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/HasPublicDescriptorTrait.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MapEntry.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MapField.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MapFieldIter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/Message.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MessageBuilderContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MessageOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MethodDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MethodOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MethodOptions/IdempotencyLevel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/MethodOptions_IdempotencyLevel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/OneofDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/OneofDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/OneofField.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/OneofOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/RawInputStream.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/RepeatedField.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/RepeatedFieldIter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/ServiceDescriptorProto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/ServiceOptions.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/SourceCodeInfo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/SourceCodeInfo/Location.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/SourceCodeInfo_Location.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/TimestampBase.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/UninterpretedOption.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/UninterpretedOption/NamePart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Internal/UninterpretedOption_NamePart.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/ListValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Method.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Mixin.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/NullValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/OneofDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Option.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/SourceContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/StringValue.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Struct.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Syntax.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Timestamp.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Type.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/UInt32Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/UInt64Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/Google/Protobuf/Value.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/google/protobuf/src/phpdoc.dist.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/MAINTAINERS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/etc/roots.pem" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/AbstractCall.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/BaseStub.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/BidiStreamingCall.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/CallInvoker.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/ClientStreamingCall.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/DefaultCallInvoker.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/Interceptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/Internal/InterceptorChannel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/MethodDescriptor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/RpcServer.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/ServerCallReader.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/ServerCallWriter.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/ServerContext.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/ServerStreamingCall.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/Status.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/grpc-php/vendor/grpc/grpc/src/lib/UnaryCall.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index2.php" beforeDir="false" afterPath="$PROJECT_DIR$/index2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/grpc/grpc/src/lib/AbstractCall.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/grpc/grpc/src/lib/AbstractCall.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="51fe37b1a56640076f79542d17acd04f965eac0a" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_graph_list_proto.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/example_pioner.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/index1.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/LogicalInputs.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/grpc-php/vendor/autoload.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_empty_proto.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Db/DbPdo.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Router.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Core/Model.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/conf/routes.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Models/Page/One.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/info.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/grpc-php/vendor/composer/autoload_real.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/grpc-php/vendor/composer/autoload_psr4.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/grpc/grpc/src/lib/UnaryCall.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/composer/autoload_psr4.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer1.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_graph_service_protoClient.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/GPBMetadata/SlGraphInstance.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/grpc-php/composer.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/vendor/grpc/grpc/src/lib/AbstractCall.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/PageOneController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Controllers/LogicalInputsController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
+      <path value="$PROJECT_DIR$/vendor/grpc/grpc" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/google/protobuf" />
-      <path value="$PROJECT_DIR$/vendor/grpc/grpc" />
     </include_path>
   </component>
-  <component name="ProjectId" id="2FhvuCk9WkaO2mnC4RmIyJxk2Bl" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2GAhtC1hdKldkJqPyziBkQeWYDl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\a_work\telek\back" />
-      <recent name="D:\a_work\telek\back\conf\db" />
-      <recent name="D:\a_work\telek\back\Controllers" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\a_work\telek\back\vendor" />
-      <recent name="D:\a_work\telek\back\" />
-    </key>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1fdef31c-ac09-437a-af25-add0c5ae04b0" name="Changes" comment="" />
-      <created>1664957351011</created>
+      <changelist id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="" />
+      <created>1665837507859</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664957351011</updated>
-      <workItem from="1664957352381" duration="2285000" />
-      <workItem from="1664960809221" duration="8000" />
-      <workItem from="1665229948577" duration="630000" />
-      <workItem from="1665385342790" duration="5004000" />
-      <workItem from="1665399564678" duration="5000" />
-      <workItem from="1665480155548" duration="404000" />
-      <workItem from="1665501819477" duration="2715000" />
-      <workItem from="1665560164771" duration="4225000" />
-      <workItem from="1665591773960" duration="177000" />
-      <workItem from="1665592826541" duration="389000" />
-      <workItem from="1665595302126" duration="2728000" />
-      <workItem from="1665654688855" duration="5138000" />
-      <workItem from="1665661798177" duration="692000" />
-      <workItem from="1665668750518" duration="185000" />
-      <workItem from="1665680883961" duration="1566000" />
-      <workItem from="1665682758397" duration="7510000" />
-      <workItem from="1665691320299" duration="6153000" />
-      <workItem from="1665726189792" duration="2930000" />
+      <updated>1665837507859</updated>
+      <workItem from="1665837509751" duration="641000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
