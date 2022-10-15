@@ -1,23 +1,17 @@
 version: '3'
 services:
   php:
-    image: ghcr.io/teleknew/sl-back:latest
-    #network_mode: "host"
+    image: sl-back:latest 
     volumes:
       - './:/var/www/html'
 
   nginx:
-    image: ghcr.io/teleknew/sl-front:latest
-    #network_mode: "host"
+    image: sl-front:latest
     ports:
       - 8080:80
-        #    volumes:
-        # - './:/var/www/html'
-        # - './docker/nginx/conf.d:/etc/nginx/conf.d'
 
   postgres:
     image: postgres:12
-    #network_mode: "host"
     ports:
       - "5432:5432"
     volumes:
