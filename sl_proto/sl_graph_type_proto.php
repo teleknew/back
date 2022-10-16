@@ -34,7 +34,7 @@ class sl_graph_type_proto
     public static function value($name)
     {
         $const = __CLASS__ . '::' . strtoupper($name);
-        print_r("\n".$const."\n");
+        //print_r("\n".$const."\n");
         if (!defined($const)) {
             throw new UnexpectedValueException(sprintf(
                     'Enum %s has no value defined for name %s', __CLASS__, $name));
