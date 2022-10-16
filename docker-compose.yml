@@ -5,8 +5,8 @@ services:
     #image: sl-back:latest
     volumes:
       - './:/var/www/html'
-    #build:
-    #  context: ./
+    build:
+      context: ./
 
   nginx:
     image: ghcr.io/teleknew/sl-front:latest
