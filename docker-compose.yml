@@ -1,12 +1,15 @@
 version: '3'
 services:
   php:
-    image: sl-back:latest 
+    image: ghcr.io/teleknew/sl-front:latest
+    #image: sl-back:latest
     volumes:
       - './:/var/www/html'
+    #build:
+    #  context: ./
 
   nginx:
-    image: sl-front:latest
+    image: ghcr.io/teleknew/sl-front:latest
     ports:
       - 8080:80
 

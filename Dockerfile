@@ -5,3 +5,4 @@ RUN pecl install grpc
 RUN echo "extension=grpc.so" >> /opt/bitnami/php/etc/php.ini
 RUN pecl install protobuf
 RUN echo "extension=protobuf.so" >> /opt/bitnami/php/etc/php.ini
+#COPY ./ /var/www/html/
