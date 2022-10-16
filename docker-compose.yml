@@ -1,7 +1,7 @@
 version: '3'
 services:
   php:
-    image: ghcr.io/teleknew/sl-front:latest
+    image: ghcr.io/teleknew/sl-back:latest
     #image: sl-back:latest
     volumes:
       - './:/var/www/html'
