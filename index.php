@@ -1,6 +1,6 @@
 <?php
 //require_once $_SERVER['DOCUMENT_ROOT'].'/php/vendor/autoload.php';
-//test comment 2
+//test comment 3 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
 /**
