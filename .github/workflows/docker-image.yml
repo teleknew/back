@@ -26,16 +26,13 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.TOKEN_TELEKNEW }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build and push container image
       uses: docker/build-push-action@v3
       with:
-        context: .
         push: true
-        secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.TOKEN_TELEKNEW }}
         tags: |
-          teleknew/sl-back-app
+          ghcr.io/teleknew/sl-back-app
           
           
           
