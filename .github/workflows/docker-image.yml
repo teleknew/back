@@ -30,10 +30,7 @@ jobs:
     - name: Build and push container image
       uses: docker/build-push-action@v3
       with:
-        context: .
         push: true
-        secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.TOKEN_TELEKNEW }}
         tags: |
           ghcr.io/teleknew/sl-back-app
           
