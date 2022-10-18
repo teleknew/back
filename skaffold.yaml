@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: back
+build:
+  artifacts:
+  - image: ghcr.io/teleknew/sl-back-app
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - k8s/deployment.yaml
+    - k8s/secret.yaml
+    - k8s/service.yaml

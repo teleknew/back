@@ -1,6 +1,6 @@
 <?php
 //require_once $_SERVER['DOCUMENT_ROOT'].'/php/vendor/autoload.php';
-//test comment 3 
+//test skaffold the last test of skaffold 
 require_once $_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php';
 
 /**
