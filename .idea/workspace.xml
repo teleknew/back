@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_type_proto.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/sl_graph_type_proto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/grpc/grpc/src/lib/AbstractCall.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/grpc/grpc/src/lib/AbstractCall.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +63,9 @@
       <workItem from="1665837509751" duration="6768000" />
       <workItem from="1665846385210" duration="974000" />
       <workItem from="1665917832638" duration="443000" />
-      <workItem from="1665918562174" duration="3676000" />
+      <workItem from="1665918562174" duration="4399000" />
+      <workItem from="1666007655664" duration="8000" />
+      <workItem from="1666008129387" duration="27000" />
     </task>
     <servers />
   </component>
