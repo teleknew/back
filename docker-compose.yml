@@ -1,12 +1,13 @@
 version: '3'
 services:
   php:
-    image: ghcr.io/teleknew/sl-back:latest
+    image: ghcr.io/teleknew/sl-back-app:latest
+#    pull_policy: always
     #image: sl-back:latest
-    volumes:
-      - './:/var/www/html'
-    build:
-      context: ./
+    #volumes:
+    #  - './:/var/www/html'
+    #build:
+    #  context: ./
 
   nginx:
     image: ghcr.io/teleknew/sl-front:latest

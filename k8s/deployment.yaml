@@ -13,13 +13,35 @@ spec:
         app: sl-web
     spec:
       containers:
-      - name: sl-web-nginx
-        image: sl-web-nginx:latest
-        imagePullPolicy: Never
+      - name: sl-front-k8s
+        image: ghcr.io/teleknew/sl-front-k8s:latest
         ports:
-          - containerPort: 80 
-      - name: sl-web-php 
-        image: sl-web-php:latest 
-        imagePullPolicy: Never
+          - containerPort: 80
+      - name: sl-back-app 
+        image: ghcr.io/teleknew/sl-back-app:latest 
+        imagePullPolicy: Always
         ports:
           - containerPort: 9000
+      - name: postgres
+        env:
+          - name: POSTGRES_DB
+            value: new
+          - name: POSTGRES_PASSWORD
+            value: root
+          - name: POSTGRES_USER
+            value: admin
+        image: postgres:12
+        ports:
+          - containerPort: 5432
+        volumeMounts:
+          - mountPath: /docker-entrypoint-initdb.d
+            name: postgres-volume0
+      volumes:
+      - name: postgres-volume0
+        hostPath:
+          path: /Users/tim/git/teleknew/back/conf/db
+          type: Directory
+      restartPolicy: Always
+      imagePullSecrets:
+      - name: regcred  
+
