@@ -39,7 +39,7 @@ spec:
       volumes:
       - name: postgres-volume0
         hostPath:
-          path: /Users/tim/git/teleknew/back/conf/db
+          path: "D:/a_work/telek/back/conf/db"
           type: Directory
       restartPolicy: Always
       imagePullSecrets:
