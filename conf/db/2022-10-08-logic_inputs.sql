@@ -1,6 +1,6 @@
 CREATE TABLE interface.logic_inputs (
                                         id serial4 NOT NULL,
-                                        "tsNumber" varchar(40) NULL,
+                                        "tsNumber" int4 NULL,
                                         "idPhysicalInput" int4 NULL,
                                         "tsId" int4 NULL,
                                         bitrate numeric(5, 2) NULL,

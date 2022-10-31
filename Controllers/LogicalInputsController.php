@@ -91,6 +91,44 @@ class LogicalInputsController extends Controller{
 
     }
 
+    public function editStreamAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new LogicalInputs())->editStream($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+
+        }
+
+    }
+
+    public function deleteStreamAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new LogicalInputs())->deleteStream($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+
+        }
+
+    }
+
     public function loadProgramsAction()
     {
         switch($this->request['method'])
