@@ -7,6 +7,9 @@ build:
   - image: ghcr.io/teleknew/sl-back-app
     docker:
       dockerfile: Dockerfile
+#  local: {
+#   push: false
+#  }
 deploy:
   kubectl:
     manifests:
