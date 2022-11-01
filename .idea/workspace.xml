@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/methods.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignor" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LogicalInputsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogicalInputsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/methods.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +96,9 @@
       <workItem from="1666946099160" duration="242000" />
       <workItem from="1667122485059" duration="8326000" />
       <workItem from="1667206923310" duration="6398000" />
-      <workItem from="1667213721914" duration="2050000" />
+      <workItem from="1667213721914" duration="2769000" />
+      <workItem from="1667216753677" duration="3000" />
+      <workItem from="1667288660825" duration="4784000" />
     </task>
     <servers />
   </component>
