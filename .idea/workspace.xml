@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignor" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/methods.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../work/np/easapr-sd" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -66,6 +67,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back\Models" />
+      <recent name="D:\a_work\telek\back\Controllers" />
+      <recent name="D:\a_work\telek\back\conf\db" />
       <recent name="D:\a_work\telek\back" />
     </key>
   </component>
@@ -98,7 +102,11 @@
       <workItem from="1667206923310" duration="6398000" />
       <workItem from="1667213721914" duration="2769000" />
       <workItem from="1667216753677" duration="3000" />
-      <workItem from="1667288660825" duration="4784000" />
+      <workItem from="1667288660825" duration="6851000" />
+      <workItem from="1667298035121" duration="163000" />
+      <workItem from="1667410658259" duration="1284000" />
+      <workItem from="1667413461840" duration="786000" />
+      <workItem from="1667471266069" duration="390000" />
     </task>
     <servers />
   </component>

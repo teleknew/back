@@ -35,6 +35,30 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/logicalOutputs/list'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'loadList',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalOutputs/create'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'createStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalOutputs/edit'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'editStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalOutputs/delete'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'deleteStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',
