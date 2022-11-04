@@ -1,0 +1,63 @@
+<?php
+namespace Controllers;
+
+use Core\Controller;
+use Core\User;
+use Models\Inform;
+
+class RemuxerController extends Controller{
+
+    public function inputDevicesAction()
+    {
+        switch($this->request['method'])
+        {
+            case "GET":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->printInputDeviceList($this->request['param']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
+
+    public function outputDevicesAction()
+    {
+        switch($this->request['method'])
+        {
+            case "GET":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->printOutputDeviceList($this->request['param']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
+
+    public function getListGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "GET":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->getListGraph($this->request['param']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
+}

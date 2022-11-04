@@ -8,7 +8,9 @@
             "Models\\": "Models",
             "Helpers\\": "Helpers",
             "Db\\": "Db",
-            "": "sl_proto"
+            "Sl\\": "sl_proto/Sl/",
+            "GPBMetadata\\": "sl_proto/GPBMetadata",
+            "Remuxer\\": "Remuxer"
         }
     },
     "authors": [

@@ -2,11 +2,255 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/RemuxerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLAffinityMaskProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLAudioEncoderTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLCatModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLCatProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLConfiguratorInfoProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLDeviceListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLDeviceProto/SLDeviceTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLDeviceProto_SLDeviceTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEitModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEitProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEitServiceModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEmptyProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEncoderDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEncoderListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEncoderProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEncoderSupportProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEnumProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLEventInfoProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLExtendedEventDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLExtendedEventDescriptorProto/ItemProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLExtendedEventDescriptorProto_ItemProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphAffinityMaskProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphEncoderDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphEncoderProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphInputProgramProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphInstanceProtoClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphLogProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphOutputProgramProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphProgramDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphProgramEncoderProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphRemuxerModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphReserveListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphReserveProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphServiceProtoClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLGraphTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputEitProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputInfoProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputNitProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputPatProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputProgramDeviceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputProgramEncoderProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputProgramListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputProgramProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLInputSdtProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLLDeviceInfoProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLLDeviceInfoProto/SLLLDeviceTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLLDeviceInfoProto_SLLLDeviceTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLocalTimeOffsetDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLocalTimeOffsetProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLogProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLogicalChannelDescriptionProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLogicalChannelDescriptionProto/LogicalChannelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLLogicalChannelDescriptionProto_LogicalChannelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLNetworkNameDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLNitModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLNitProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLNitTransportStreamProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLNitsTsModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLOtherPidPidsProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLOtherPidProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLOutputProgramListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLOutputProgramProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPairModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLParamProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLParentalRatingDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLParentalRatingDescriptorProto/RatingProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLParentalRatingDescriptorProto_RatingProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLParsingStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPatModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPatProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPmtModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPmtProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLPmtsModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLProgramMapProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLRemuxerInstanceProtoClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLReserveListProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLReserveProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLReserveProto/SLStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLReserveProto_SLStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLReserveStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSdtModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSdtProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSdtServiceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSdtsSdsModel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLServiceDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLServiceListDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLServiceListDescriptorProto/ServiceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLServiceListDescriptorProto_ServiceProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSettingProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLSettingsProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLShortEventDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStatisticProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStatisticsProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStreamIdentifierDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStreamMapProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStreamProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLStreamTypeProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTableStateProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTdtModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTdtProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTeletextDescriptorPageProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTeletextDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTotModelProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLTotProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLUnknownDescriptorProto.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sl_proto/Sl/SLVideoEncoderTypeProto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/back.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/back.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlGraphInstance.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlGraphInstance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlGraphService.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlGraphService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlMpegTs.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlMpegTs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlRemuxerInstance.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlRemuxerInstance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlRemuxerModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/sl_proto/GPBMetadata/SlRemuxerModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_affinity_mask_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_audio_encoder_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_cat_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_cat_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_configurator_info_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_device_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_device_proto/sl_device_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_device_proto_sl_device_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_eit_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_eit_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_eit_service_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_empty_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_encoder_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_encoder_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_encoder_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_encoder_support_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_enum_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_event_info_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_extended_event_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_extended_event_descriptor_proto/item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_extended_event_descriptor_proto_item.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_affinity_mask_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_encoder_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_encoder_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_input_program_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_instance_protoClient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_log_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_output_program_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_program_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_program_encoder_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_remuxer_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_reserve_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_reserve_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_service_protoClient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_graph_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_eit_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_info_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_nit_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_pat_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_program_device_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_program_encoder_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_program_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_program_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_input_sdt_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_ll_device_info_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_ll_device_info_proto/sl_ll_device_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_ll_device_info_proto_sl_ll_device_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_local_time_offset_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_local_time_offset_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_log_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_logical_channel_description_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_logical_channel_description_proto/logical_channel_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_logical_channel_description_proto_logical_channel_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_network_name_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_nit_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_nit_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_nit_transport_stream_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_nits_ts_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_other_pid_pids_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_other_pid_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_output_program_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_output_program_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pair_model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_param_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_parental_rating_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_parental_rating_descriptor_proto/rating.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_parental_rating_descriptor_proto_rating.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_parsing_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pat_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pat_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pmt_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pmt_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_pmts_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_program_map_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_remuxer_instance_protoClient.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_reserve_list_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_reserve_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_reserve_proto/sl_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_reserve_proto_sl_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_reserve_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_sdt_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_sdt_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_sdt_service_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_sdts_sds_model.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_service_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_service_list_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_service_list_descriptor_proto/service_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_service_list_descriptor_proto_service_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_setting_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_settings_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_short_event_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_statistic_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_statistics_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_stream_identifier_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_stream_map_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_stream_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_stream_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_table_state_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_tdt_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_tdt_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_teletext_descriptor_page_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_teletext_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_tot_model_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_tot_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_unknown_descriptor_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sl_proto/sl_video_encoder_type_proto.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,19 +273,16 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_graph_list_proto.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Dockerfile.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/LogicalInputs.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/grpc/grpc/composer.json" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_graph_service_protoClient.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Core/Controller.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/sl_proto/sl_empty_proto.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/index.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/vendor/grpc/grpc/src/lib/BaseStub.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Helpers/Helpers.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Controllers/LogicalInputsController.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/conf/routes.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Dockerfile.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -59,18 +300,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nikita/grpc-php1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\a_work\telek\back\Models" />
+      <recent name="D:\a_work\telek\back\Remuxer" />
       <recent name="D:\a_work\telek\back\Controllers" />
+      <recent name="D:\a_work\telek\back\Models" />
       <recent name="D:\a_work\telek\back\conf\db" />
       <recent name="D:\a_work\telek\back" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back\Remuxer" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -107,6 +353,11 @@
       <workItem from="1667410658259" duration="1284000" />
       <workItem from="1667413461840" duration="786000" />
       <workItem from="1667471266069" duration="390000" />
+      <workItem from="1667491168374" duration="8560000" />
+      <workItem from="1667503155401" duration="9636000" />
+      <workItem from="1667557111106" duration="576000" />
+      <workItem from="1667557702533" duration="8000" />
+      <workItem from="1667557735016" duration="8190000" />
     </task>
     <servers />
   </component>

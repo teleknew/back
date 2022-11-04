@@ -7,6 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
 {
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Sl\\' => 3,
+        ),
+        'R' => 
+        array (
+            'Remuxer\\' => 8,
+        ),
         'M' => 
         array (
             'Models\\' => 7,
@@ -20,6 +28,7 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
             'Grpc\\' => 5,
             'Google\\Protobuf\\' => 16,
             'GPBMetadata\\Google\\Protobuf\\' => 28,
+            'GPBMetadata\\' => 12,
         ),
         'D' => 
         array (
@@ -33,6 +42,14 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
     );
 
     public static $prefixDirsPsr4 = array (
+        'Sl\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/sl_proto/Sl',
+        ),
+        'Remuxer\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/Remuxer',
+        ),
         'Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Models',
@@ -53,6 +70,10 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
         ),
+        'GPBMetadata\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/sl_proto/GPBMetadata',
+        ),
         'Db\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Db',
@@ -67,10 +88,6 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         ),
     );
 
-    public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/../..' . '/sl_proto',
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -80,7 +97,6 @@ class ComposerStaticInitcaa8877c601eea543b9abbc97496e429
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$fallbackDirsPsr4;
             $loader->classMap = ComposerStaticInitcaa8877c601eea543b9abbc97496e429::$classMap;
 
         }, null, ClassLoader::class);

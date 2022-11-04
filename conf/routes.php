@@ -59,6 +59,24 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/inform/inputDevices'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'inputDevices',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/inform/outputDevices'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'outputDevices',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/inform/listGraph'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'getListGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',
