@@ -114,10 +114,6 @@ class Inform
             $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
         }
 
-        print_r("\n");
-        print_r($outputGraphs->serializeToJsonString());
-        print_r("\n");
-
         return $Result;
 
     }
