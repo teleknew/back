@@ -63,4 +63,26 @@ class Remuxer
         return $response;
     }
 
+    /**
+     * Возврщает список входных устройств Графа
+     * @return sl_device_list_proto
+     * или выкидываем исключение @throws \Exception
+     */
+    function getGraphInputDevices($graphGuid): SLDeviceListProto
+    {
+        /** получение конкретного графа по Guid начало */
+        foreach($this->getGraphs()->getList() as $graph) {
+            if($graph->getGuid() == $graphGuid){
+                $myGraph = $graph;
+                break;
+            }
+        }
+
+        list($response, $status) = $this->client->get_graph_input_device_list($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
 }

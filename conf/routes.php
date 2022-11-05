@@ -77,6 +77,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/inform/graphInputDevices'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'getGraphInputDeviceList',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',
