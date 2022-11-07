@@ -78,4 +78,22 @@ class RemuxerController extends Controller{
         }
 
     }
+
+    public function getGraphInputDeviceProgramListAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->getGraphInputDeviceProgramList($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
 }

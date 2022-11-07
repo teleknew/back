@@ -157,4 +157,46 @@ class Inform
         return $Result;
     }
 
+    public function getGraphInputDeviceProgramList($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        try {
+            $graphInputDevicePrograms = (new Remuxer())->getInputProgramList($Data['graphGuid'], $Data['deviceGuid'], $Data['getRem']);
+
+            //print_r($graphInputDevicePrograms->serializeToJsonString());
+
+            $Result['Result'] = json_decode($graphInputDevicePrograms->serializeToJsonString());
+
+            $devices = [];
+
+            /*foreach ($graphInputDevice->getList() as $inputDevice) {
+                //Helpers::get_pr(json_decode($inputDevice->serializeToJsonString()));
+                $inputDevice = json_decode($inputDevice->serializeToJsonString());
+                $devices[] = [
+                    'displayName' => $inputDevice->displayName,
+                    'guid' => $inputDevice->guid,
+                    'type' => $inputDevice->type,
+                    'settings' => json_decode($inputDevice->settings),
+                ];
+            }
+
+            //print_r($devices);
+
+            if (count($devices) > 0) {
+                $Result["Result"] = $devices;
+            }*/
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка!: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
 }

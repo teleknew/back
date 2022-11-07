@@ -4,8 +4,10 @@ namespace Remuxer;
 
 use Sl\SLDeviceListProto;
 use Sl\SLEmptyProto;
+use Sl\SLGraphDeviceProto;
 use Sl\SLGraphListProto;
 use Sl\SlGraphServiceProtoClient as protoClient;
+use Sl\SLInputProgramListProto;
 
 class Remuxer
 {
@@ -63,6 +65,25 @@ class Remuxer
         return $response;
     }
 
+    /** получение конкретного графа по Guid начало
+     * или выкидываем исключение @throws \Exception
+     */
+    public function getGraphGuid($graphGuid)
+    {
+        $myGraph = false;
+        foreach ($this->getGraphs()->getList() as $graph) {
+            if ($graph->getGuid() == $graphGuid) {
+                $myGraph = $graph;
+                break;
+            }
+        }
+
+        if(!$myGraph)
+            throw new \Exception("ERROR: Нет Графа с таким Guid " . $graphGuid);
+
+        return $myGraph;
+    }
+
     /**
      * Возврщает список входных устройств Графа
      * @return sl_device_list_proto
@@ -71,14 +92,50 @@ class Remuxer
     function getGraphInputDevices($graphGuid): SLDeviceListProto
     {
         /** получение конкретного графа по Guid начало */
-        foreach($this->getGraphs()->getList() as $graph) {
-            if($graph->getGuid() == $graphGuid){
-                $myGraph = $graph;
-                break;
+        $myGraph = $this->getGraphGuid($graphGuid);
+
+        list($response, $status) = $this->client->get_graph_input_device_list($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /** получение конкретного входного устройства (InputDevice) по Guid начало
+     * или выкидываем исключение @throws \Exception
+     */
+    function getGraphInputDevice($graphGuid, $deviceGuid)
+    {
+        $currentDevice = false;
+        $graphDevice= $this->getGraphInputDevices($graphGuid);
+
+        foreach ($graphDevice->getList() as $inputDevice) {
+            if ($inputDevice->getGuid() == $deviceGuid) {
+                $currentDevice = $inputDevice;
             }
         }
 
-        list($response, $status) = $this->client->get_graph_input_device_list($myGraph)->wait();
+        if(!$currentDevice)
+            throw new \Exception("ERROR: Нет устройства с Guid " . $deviceGuid . " D Графе Guid " . $graphGuid);
+
+        return $currentDevice;
+    }
+
+    /**
+     * Возвращаем список программ входного устройства
+     * или выкидываем исключение @throws \Exception
+     */
+    function getInputProgramList($graphGuid, $deviceGuid, $getRem = 0): SLInputProgramListProto
+    {
+        $graph_device = new SLGraphDeviceProto();
+        $graph_device->setGraph($this->getGraphGuid($graphGuid));
+        $graph_device->setDevice($this->getGraphInputDevice($graphGuid, $deviceGuid));
+        if($getRem){
+            list($response, $status) = $this->client->get_remuxer_input_info($graph_device)->wait();
+        }
+        else{
+            list($response, $status) = $this->client->get_input_program_list($graph_device)->wait();
+        }
         if ($status->code !== \Grpc\STATUS_OK) {
             throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
         }
