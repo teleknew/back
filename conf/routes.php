@@ -89,6 +89,24 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/inform/graphOutputDevices'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'getGraphOutputDeviceList',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/edit/createGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'createGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/edit/deleteGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'deleteGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',

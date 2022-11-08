@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/RemuxerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/RemuxerController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
@@ -56,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nikita/grpc-php1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Controllers" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -65,8 +67,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\a_work\telek\back\Remuxer" />
       <recent name="D:\a_work\telek\back\Controllers" />
+      <recent name="D:\a_work\telek\back\Remuxer" />
       <recent name="D:\a_work\telek\back\Models" />
       <recent name="D:\a_work\telek\back\conf\db" />
       <recent name="D:\a_work\telek\back" />
@@ -117,6 +119,10 @@
       <workItem from="1667647142756" duration="5131000" />
       <workItem from="1667808899590" duration="10000" />
       <workItem from="1667809242544" duration="7090000" />
+      <workItem from="1667835124122" duration="5192000" />
+      <workItem from="1667895875174" duration="2845000" />
+      <workItem from="1667916813702" duration="5000" />
+      <workItem from="1667921152878" duration="9624000" />
     </task>
     <servers />
   </component>

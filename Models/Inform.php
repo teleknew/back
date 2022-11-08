@@ -171,17 +171,38 @@ class Inform
             //print_r($graphInputDevicePrograms->serializeToJsonString());
 
             $Result['Result'] = json_decode($graphInputDevicePrograms->serializeToJsonString());
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка!: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+
+
+    public function getGraphOutputDeviceList($Data/*, $UserInfo*/): array
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        try {
+            $graphOutputDevice = (new Remuxer())->getGraphOutputDevices($Data['guid']);
 
             $devices = [];
 
-            /*foreach ($graphInputDevice->getList() as $inputDevice) {
+            foreach ($graphOutputDevice->getList() as $outputDevice) {
                 //Helpers::get_pr(json_decode($inputDevice->serializeToJsonString()));
-                $inputDevice = json_decode($inputDevice->serializeToJsonString());
+                $outputDevice = json_decode($outputDevice->serializeToJsonString());
                 $devices[] = [
-                    'displayName' => $inputDevice->displayName,
-                    'guid' => $inputDevice->guid,
-                    'type' => $inputDevice->type,
-                    'settings' => json_decode($inputDevice->settings),
+                    'displayName' => $outputDevice->displayName,
+                    'guid' => $outputDevice->guid,
+                    'type' => $outputDevice->type,
+                    'settings' => json_decode($outputDevice->settings),
                 ];
             }
 
@@ -189,11 +210,11 @@ class Inform
 
             if (count($devices) > 0) {
                 $Result["Result"] = $devices;
-            }*/
+            }
         }
         catch(\Exception $e)
         {
-            $Result['Errors'] = "Ошибка!: {$e->getMessage()}.\n";
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
         }
 
         return $Result;
