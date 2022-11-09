@@ -22,7 +22,6 @@ class ItemsEditingController extends Controller{
 
                 break;
         }
-
     }
 
     public function deleteGraphAction()
@@ -40,6 +39,42 @@ class ItemsEditingController extends Controller{
 
                 break;
         }
+    }
 
+    public function addInputRawToGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->addInputRawToGraph($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function deleteInputDeviceFromGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->deleteInputDeviceFromGraph($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
     }
 }

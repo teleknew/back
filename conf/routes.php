@@ -107,6 +107,18 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/edit/addInputRawToGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'addInputRawToGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/edit/deleteInputDeviceFromGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'deleteInputDeviceFromGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',

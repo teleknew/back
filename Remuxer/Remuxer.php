@@ -3,6 +3,7 @@
 namespace Remuxer;
 
 use Sl\SLDeviceListProto;
+use Sl\SLDeviceProto;
 use Sl\SLEmptyProto;
 use Sl\SLGraphDeviceProto;
 use Sl\SLGraphListProto;
@@ -250,6 +251,44 @@ class Remuxer
     {
         $deleteGraph = (new Remuxer())->getGraphGuid($graphGuid);
         list($response, $status) = $this->client->delete_graph($deleteGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Добавляет устройства в Граф
+     * @return SLDeviceProto
+     * @throws \Exception
+     */
+
+    public function addInputDeviceToGraph($graphGuid, SLDeviceProto $inputDevice): SLDeviceProto
+    {
+        $graph = $this->getGraphGuid($graphGuid);
+        $graph_device = new SLGraphDeviceProto();
+        $graph_device->setGraph($graph);
+        $graph_device->setDevice($inputDevice);
+        list($response, $status) = $this->client->add_input_device_to_graph($graph_device)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Удаляем устройства из Графа
+     * @return SLDeviceListProto
+     * @throws \Exception
+     */
+    public function deleteInputDeviceFromGraph($graphGuid, $inputDeviceGuid): SLEmptyProto
+    {
+        $graph = $this->getGraphGuid($graphGuid);
+        $inputDevice = $this->getGraphInputDevice($graphGuid, $inputDeviceGuid);
+        $graph_device = new SLGraphDeviceProto();
+        $graph_device->setGraph($graph);
+        $graph_device->setDevice($inputDevice);
+        list($response, $status) = $this->client->delete_input_device_from_graph($graph_device)->wait();
         if ($status->code !== \Grpc\STATUS_OK) {
             throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
         }
