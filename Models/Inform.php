@@ -23,7 +23,7 @@ class Inform
             foreach ($inputDeviceList->getList() as $inputDevice) {
                 $devices[] = [
                     'name' => $inputDevice->getDisplayName(),
-                    'settings' => $inputDevice->getSettings()
+                    'settings' => json_decode($inputDevice->getSettings())
                 ];
             }
 

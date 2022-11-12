@@ -4,9 +4,13 @@
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Remuxer/Remuxer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +127,13 @@
       <workItem from="1667921152878" duration="9840000" />
       <workItem from="1667980747795" duration="5265000" />
       <workItem from="1668006423718" duration="2631000" />
-      <workItem from="1668009565103" duration="4481000" />
+      <workItem from="1668009565103" duration="4571000" />
+      <workItem from="1668066908832" duration="5495000" />
+      <workItem from="1668084055413" duration="1162000" />
+      <workItem from="1668086516998" duration="341000" />
+      <workItem from="1668098903182" duration="1570000" />
+      <workItem from="1668156991614" duration="5311000" />
+      <workItem from="1668182127526" duration="7728000" />
     </task>
     <servers />
   </component>

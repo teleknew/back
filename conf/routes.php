@@ -113,6 +113,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/edit/addOutputRawToGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'addOutputRawToGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/edit/deleteInputDeviceFromGraph'                                        => [
         'controller' => 'itemsEditing',
         'action'     => 'deleteInputDeviceFromGraph',

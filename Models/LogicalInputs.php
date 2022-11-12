@@ -5,14 +5,7 @@ namespace Models;
 use Core\DbModel;
 use Helpers\Helpers;
 use Db\DbPdo;
-use sl_graph_service_protoClient as protoClient;
-use sl_empty_proto;
-use sl_graph_list_proto;
-use sl_device_list_proto;
-use sl_graph_proto;
-use sl_device_proto;
-use sl_input_info_proto;
-use sl_graph_device_proto;
+use Models\ItemsEditing;
 
 class LogicalInputs
 {
@@ -43,7 +36,7 @@ class LogicalInputs
                     if($SelectResult['sourceType'] == 'IP') {
                         $Select = 'SELECT * FROM interface.ip_inputs WHERE "idIpInputs" = :idIpInputs';
                         $SelectParams = [
-                            ":idIpInputs" => $SelectResult['idIpInputs']
+                            ":idIpInputs" => $SelectResult['id']
                         ];
 
                         $SelectRes = $db->queryFetched($Select, $SelectParams);
@@ -213,7 +206,7 @@ class LogicalInputs
         return $Result;
     }
 
-    public function createStream($Data/*, $UserInfo*/)
+    public function createStream($Data/*, $UserInfo*/): array
     {
         $Result = [
             "Data" => $Data,
@@ -253,7 +246,8 @@ class LogicalInputs
                                   :mode,
                                   :activeInput,
                                   :countservise
-                                  );";
+                                  )
+                                  RETURNING id;";
 
 
             $InsertStramParams = [
@@ -271,11 +265,80 @@ class LogicalInputs
                 ":countservise" => $Data['countservise']
             ];
 
-            $db->queryFetched($InsertStreamQuery, $InsertStramParams);
+            $ResultInsertStreamQuery = $db->queryFetched($InsertStreamQuery, $InsertStramParams);
+            //print_r(Helpers::get_pr($ResultInsertStreamQuery[0]['id']));
+
+            if($Data['sourceType'] == 'IP'){
+               /** если типа IP, тогда кладем сюда interface.ip_inputs еще данные с IP
+               * И коммит сделать после успешно создания всех запросов и графов
+                */
+                $InsertIpInputsQuery = "INSERT INTO interface.ip_inputs
+                                    (
+                                    \"idIpInputs\",
+                                    \"namePort\",
+                                    \"idPhysicalInput\",
+                                    \"ipType\",
+                                    \"ipVersion\",
+                                    \"ipPort\",
+                                    \"ipNumberPort\",
+                                    \"tcpUdpPort\",
+                                    encapsulation,
+                                    \"host\"
+                                    )
+                                    VALUES
+                                    (
+                                    :idIpInputs,
+                                    :namePort,
+                                    :idPhysicalInput,
+                                    :ipType,
+                                    :ipVersion,
+                                    :ipPort,
+                                    :ipNumberPort,
+                                    :tcpUdpPort,
+                                    :encapsulation,
+                                    :host
+                                    )";
+
+                $InsertIpInputsQueryParams = [
+                    ":idIpInputs" => $ResultInsertStreamQuery[0]['id'],
+                    ":namePort" => $Data['IP'][0]['namePort'],
+                    ":idPhysicalInput" => $Data['IP'][0]['idPhysicalInput'],
+                    ":ipType" => $Data['IP'][0]['ipType'],
+                    ":ipVersion" => $Data['IP'][0]['ipVersion'],
+                    ":ipPort" => $Data['IP'][0]['ipPort'],
+                    ":ipNumberPort" => $Data['IP'][0]['ipNumberPort'],
+                    ":tcpUdpPort" => $Data['IP'][0]['tcpUdpPort'],
+                    ":encapsulation" => $Data['IP'][0]['encapsulation'],
+                    ":host" => $Data['IP'][0]['host']
+                ];
+
+                $db->queryFetched($InsertIpInputsQuery, $InsertIpInputsQueryParams);
+
+            }
+            $data = [
+                'graphName' => $Data['IP'][0]['graphName'],
+                'graphType' => 1
+            ];
+
+            $graphResult = (new ItemsEditing())->createGraph($data);
+            if(!$graphResult["Result"])
+                throw new \Exception("ERROR: " . $graphResult['Errors']);
+
+            //sleep(2);
+            $data = [
+                'graphGuid' => $graphResult['Result']['graphGuid'],
+                'ip0' =>  $Data['IP'][0]['host'],
+                'port' => $Data['IP'][0]['ipNumberPort'],
+                'ip2' =>  $Data['IP'][0]['ipPort']
+            ];
+            $deviceResult = (new ItemsEditing())->addInputRawToGraph($data);
+            if(!$deviceResult['Result'])
+                throw new \Exception("ERROR: " . $deviceResult['Errors']);
 
             $db->commit();
 
-            $Result['Result'] = true;
+            $Result['Result'][] = $graphResult['Result'];
+            $Result['Result'][] = $deviceResult['Result'];
         }
         catch(\Exception $e)
         {
@@ -285,8 +348,13 @@ class LogicalInputs
                 $db->rollback();
             }
 
-            $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n" /*SQL: {$InsertResponseQuery}.\n Params: ".print_r($InsertResponseParams,true)*/;
-            //return $Result;
+            if($graphResult["Errors"] || $deviceResult['Errors']){
+                $Result['Errors'] = "Ошибка создания графа или метода\n SQL Error: {$e->getMessage()}.\n";
+
+            }
+            else{
+                $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n";
+            }
         }
 
         //print_r($SelectRes);

@@ -58,6 +58,23 @@ class ItemsEditingController extends Controller{
         }
     }
 
+    public function addOutputRawToGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->addOutputRawToGraph($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
+
     /**
      * @throws \Exception
      */

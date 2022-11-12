@@ -68,6 +68,7 @@ class ItemsEditing
             "Errors" => "",
             "Result" => false
         ];
+        //Helpers::get_pr($Data);
         try {
             $inputDevice = (new Remuxer())->getInputDeviceList()->getList()[6];
             $param = json_decode($inputDevice->getSettings());
@@ -82,6 +83,48 @@ class ItemsEditing
             $inputDevice = $inputDevice->setSettings($param);
 
             $new_device = (new Remuxer())->addInputDeviceToGraph($Data['graphGuid'], $inputDevice); // это в классе ремуксер
+
+            $settings = json_decode($new_device->getSettings());
+            //Helpers::get_pr($settings);
+            $new_device = json_decode($new_device->serializeToJsonString());
+            //Helpers::get_pr($new_device);
+            $new_device->settings = $settings;
+
+            $Result['Result'] = $new_device;
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function addOutputRawToGraph($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+        try {
+            $outputDevice = (new Remuxer())->getOutputDeviceList()->getList()[3];
+            $param = json_decode($outputDevice->getSettings());
+
+
+            // тут присваиваем параметры
+            $param[0]->params[1]->value = $Data['ip0'];
+            $param[0]->params[2]->value = $Data['port'];
+            $param[0]->params[3]->value = $Data['ip2'];
+
+            $param = json_encode($param);
+
+            $outputDevice = $outputDevice->setSettings($param);
+
+            $new_device = (new Remuxer())->addInputDeviceToGraph($Data['graphGuid'], $outputDevice); // это в классе ремуксер
 
             $settings = json_decode($new_device->getSettings());
             //Helpers::get_pr($settings);

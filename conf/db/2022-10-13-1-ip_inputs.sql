@@ -9,5 +9,6 @@ CREATE TABLE interface.ip_inputs (
                                      "ipNumberPort" int4 NULL,
                                      "tcpUdpPort" varchar NULL,
                                      encapsulation varchar NULL,
+                                     host varchar NULL,
                                      CONSTRAINT ip_inputs_pk PRIMARY KEY (id)
 );

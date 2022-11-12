@@ -149,7 +149,7 @@ class Remuxer
      * Возвращаем список программ входного устройства
      * или выкидываем исключение @throws \Exception
      */
-    public function getInputProgramList($graphGuid, $deviceGuid, $getRem = 0): SLInputProgramListProto
+    public function getInputProgramList($graphGuid, $deviceGuid, $getRem = 0)/*: SLInputProgramListProto*/
     {
         $graph_device = new SLGraphDeviceProto();
         $graph_device->setGraph($this->getGraphGuid($graphGuid));
@@ -258,12 +258,32 @@ class Remuxer
     }
 
     /**
-     * Добавляет устройства в Граф
+     * Добавляет входное устройства в Граф
      * @return SLDeviceProto
      * @throws \Exception
      */
 
     public function addInputDeviceToGraph($graphGuid, SLDeviceProto $inputDevice): SLDeviceProto
+    {
+        $graph = $this->getGraphGuid($graphGuid);
+        $graph_device = new SLGraphDeviceProto();
+        $graph_device->setGraph($graph);
+        $graph_device->setDevice($inputDevice);
+        list($response, $status) = $this->client->add_input_device_to_graph($graph_device)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+
+        /**
+         * Добавляет выходное устройства в Граф
+         * @return SLDeviceProto
+         * @throws \Exception
+         */
+
+    public function addOutputDeviceToGraph($graphGuid, SLDeviceProto $inputDevice): SLDeviceProto
     {
         $graph = $this->getGraphGuid($graphGuid);
         $graph_device = new SLGraphDeviceProto();
