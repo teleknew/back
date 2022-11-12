@@ -78,6 +78,7 @@ class DbPdo /*implements DbInterface*/
         $password = 'root';
         /** @var string адрес базы данных */
         $host = 'postgres';
+        $host = '127.0.0.1';
         /** @var int порт доступа к базе данных */
         $port = 5432;
         /** @var array дополнительные опции соединения с базой данных */
