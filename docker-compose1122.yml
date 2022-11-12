@@ -1,0 +1,25 @@
+version: '3'
+services:
+  php:
+    image: ghcr.io/teleknew/sl-back:latest
+    #image: sl-back:latest
+    volumes:
+      - './:/var/www/html'
+    build:
+      context: ./
+
+  nginx:
+    image: ghcr.io/teleknew/sl-front:latest
+    ports:
+      - 8080:80
+
+  postgres:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./conf/db:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_DB=new
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=admin

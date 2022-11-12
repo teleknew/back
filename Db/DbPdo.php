@@ -60,6 +60,16 @@ class DbPdo /*implements DbInterface*/
     public function __construct()
     {
         //print_r ("Зашли в конструктор DbPdo()\n<br><br>");
+
+        /** @var string название базы данных */
+        $dbname = $_ENV["POSTGRES_DB"];
+        /** @var string имя пользователя */
+        $username = $_ENV["POSTGRES_USER"];
+        /** @var string пароль пользователя */
+        $password = $_ENV["POSTGRES_PASSWORD"];
+        /** @var string адрес базы данных */
+        $host = $_ENV["POSTGRES_HOST"];
+
         /** @var string название базы данных */
         $dbname = 'new';
         /** @var string имя пользователя */
@@ -72,6 +82,8 @@ class DbPdo /*implements DbInterface*/
         $port = 5432;
         /** @var array дополнительные опции соединения с базой данных */
         $options = [];
+
+        //print_r($_ENV);
 
         /** @var string формируем dsn для подключения */
         $dsn = "pgsql:host=".$host.";port=".$port.";dbname=".$dbname;

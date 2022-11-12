@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Remuxer/Remuxer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Controllers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -69,11 +62,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back" />
       <recent name="D:\a_work\telek\back\Controllers" />
       <recent name="D:\a_work\telek\back\Remuxer" />
       <recent name="D:\a_work\telek\back\Models" />
       <recent name="D:\a_work\telek\back\conf\db" />
-      <recent name="D:\a_work\telek\back" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\a_work\telek\back\Remuxer" />
@@ -134,6 +127,7 @@
       <workItem from="1668098903182" duration="1570000" />
       <workItem from="1668156991614" duration="5311000" />
       <workItem from="1668182127526" duration="7728000" />
+      <workItem from="1668241709390" duration="3357000" />
     </task>
     <servers />
   </component>
