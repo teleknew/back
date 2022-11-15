@@ -315,6 +315,7 @@ class LogicalInputs
                 $db->queryFetched($InsertIpInputsQuery, $InsertIpInputsQueryParams);
 
             }
+
             $data = [
                 'graphName' => $Data['IP'][0]['graphName'],
                 'graphType' => 1
@@ -324,7 +325,17 @@ class LogicalInputs
             if(!$graphResult["Result"])
                 throw new \Exception("ERROR: " . $graphResult['Errors']);
 
-            //sleep(2);
+            //** Добавить в БД uuid графа. Посомтреть куда можно добавить uuid  **/
+
+            $UpdateStreamQuery = 'UPDATE interface.logic_inputs SET
+												"graphUuid" = :graphUuid
+											WHERE id = :id';
+            $UpdateParams = [
+                ":graphUuid" => $graphResult['Result']['graphGuid'],
+                ":id" => $ResultInsertStreamQuery[0]['id']
+            ];
+            $db->queryFetched($UpdateStreamQuery,$UpdateParams);
+
             $data = [
                 'graphGuid' => $graphResult['Result']['graphGuid'],
                 'ip0' =>  $Data['IP'][0]['host'],
@@ -348,18 +359,23 @@ class LogicalInputs
                 $db->rollback();
             }
 
-            if($graphResult["Errors"] || $deviceResult['Errors']){
-                $Result['Errors'] = "Ошибка создания графа или метода\n SQL Error: {$e->getMessage()}.\n";
+            /** нужно проверки именно существования результата $graphResult и $deviceResult
+             * проверяем errors а поом существование
+             */
 
+            if($graphResult["Errors"]){
+                $Result['Errors'] = "Ошибка создания графа\n SQL Error: {$e->getMessage()}.\n";
+            }
+            elseif($deviceResult['Errors']){
+                $Result['Errors'] = "Ошибка создания устройства в графе\n SQL Error: {$e->getMessage()}.\n";
             }
             else{
                 $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n";
             }
-        }
 
-        //print_r($SelectRes);
-        //$Result['Result'] = ($Result['Errors'] == "");
-        //Helpers::get_pr('Вроде сохранили');
+            if($graphResult["Result"])
+                (new ItemsEditing())->deleteGraph(['graphGuid' => $graphResult['Result']['graphGuid']]);
+        }
         return $Result;
     }
 

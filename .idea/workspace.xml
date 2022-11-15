@@ -4,6 +4,10 @@
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +131,13 @@
       <workItem from="1668098903182" duration="1570000" />
       <workItem from="1668156991614" duration="5311000" />
       <workItem from="1668182127526" duration="7728000" />
-      <workItem from="1668241709390" duration="3357000" />
+      <workItem from="1668241709390" duration="4072000" />
+      <workItem from="1668413085212" duration="36000" />
+      <workItem from="1668415020195" duration="1842000" />
+      <workItem from="1668444956567" duration="7733000" />
+      <workItem from="1668499350111" duration="294000" />
+      <workItem from="1668499727042" duration="5594000" />
+      <workItem from="1668531975450" duration="5883000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ use Sl\SLEmptyProto;
 use Sl\SLGraphDeviceProto;
 use Sl\SLGraphListProto;
 use Sl\SLGraphProto;
-use Sl\SlGraphServiceProtoClient as protoClient;
+use Sl\SLGraphServiceProtoClient as protoClient;
 use Sl\SLInputProgramListProto;
 use Sl\SLOutputProgramListProto;
 use Sl\SLGraphInputProgramProto;

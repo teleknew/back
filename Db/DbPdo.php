@@ -83,8 +83,6 @@ class DbPdo /*implements DbInterface*/
         /** @var array дополнительные опции соединения с базой данных */
         $options = [];
 
-        //print_r($_ENV);
-
         /** @var string формируем dsn для подключения */
         $dsn = "pgsql:host=".$host.";port=".$port.";dbname=".$dbname;
 
