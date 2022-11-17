@@ -462,13 +462,20 @@ class LogicalInputs
 
             $DeleteQuery = 'DELETE FROM interface.logic_inputs 
                             WHERE id=:id
-                            RETURNING id, "tsNumber"';
+                            RETURNING id, "tsNumber","graphUuid"';
             $DeleteParams = [
                 ":id" => $Data['id']
             ];
             $DeleteRes = $db->queryFetched($DeleteQuery, $DeleteParams);
 
             $tsNumber = $DeleteRes[0]['tsNumber'];
+
+            $DeleteIpQuery = 'DELETE FROM interface.ip_inputs 
+                            WHERE "idIpInputs"=:idIpInputs';
+            $DeleteIpParams = [
+                ":idIpInputs" => $DeleteRes[0]['id']
+            ];
+            $DeleteIpRes = $db->queryFetched($DeleteIpQuery, $DeleteIpParams);
 
             $ResultQuery = [];
 
@@ -496,6 +503,10 @@ class LogicalInputs
                 }
             }
 
+            $graphDelete = (new ItemsEditing())->deleteGraph(['graphGuid' => $DeleteRes[0]['graphUuid']]);
+            if(!$graphDelete["Result"])
+                throw new \Exception("ERROR: " . $graphDelete['Errors']);
+
             $db->commit();
 
             if( count($ResultQuery) > 0 )
@@ -509,7 +520,7 @@ class LogicalInputs
                 $db->rollback();
             }
 
-            $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n" /*SQL: {$InsertResponseQuery}.\n Params: ".print_r($InsertResponseParams,true)*/;
+            $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n";
         }
 
         return $Result;
