@@ -230,7 +230,7 @@ class LogicalOutputs
                                 \"idIpInputs\", 
                                 \"mode\", 
                                 \"activeInput\", 
-                                countservise)
+                                \"countService\")
                                 VALUES
                                  (
                                   :tsNumber,
@@ -244,7 +244,7 @@ class LogicalOutputs
                                   :idIpInputs,
                                   :mode,
                                   :activeInput,
-                                  :countservise
+                                  :countService
                                   );";
 
 
@@ -260,7 +260,7 @@ class LogicalOutputs
                 ":idIpInputs" => $Data['idIpInputs'],
                 ":mode" => $Data['mode'],
                 ":activeInput" => $Data['activeInput'],
-                ":countservise" => $Data['countservise']
+                ":countService" => $Data['countService']
             ];
 
             $db->queryFetched($InsertStreamQuery, $InsertStramParams);
@@ -310,7 +310,7 @@ class LogicalOutputs
                                   "idIpInputs"  =:idIpInputs,
                                   "mode"  =:mode,
                                   "activeInput"  =:activeInput,
-                                  countservise =:countservise
+                                  countService =:countService
                             WHERE id = :id
                             RETURNING id';
 
@@ -325,7 +325,7 @@ class LogicalOutputs
                 ":idIpInputs" => $Data['idIpInputs'],
                 ":mode" => $Data['mode'],
                 ":activeInput" => $Data['activeInput'],
-                ":countservise" => $Data['countservise'],
+                ":countService" => $Data['countService'],
                 ":id" => $Data['id']
             ];
 

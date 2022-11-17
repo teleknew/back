@@ -43,7 +43,7 @@ http://localhost:8080/api/logicalInputs/list
 "idIpInputs": 123,
 "mode": 123,
 "activeInput": 123,
-"countservise": 123
+"countService": 123
 },
 
 #createStream Создать поток
@@ -62,7 +62,7 @@ http://localhost:8080/api/logicalInputs/create
 "idIpInputs":123,
 "mode":123,
 "activeInput":123,
-"countservise":123
+"countService":123
 }
 
 #editStream редактировать поток
@@ -88,7 +88,7 @@ http://localhost:8080/api/logicalInputs/edit
 "idIpInputs":8888,
 "mode":8888,
 "activeInput":888,
-"countservise":888888
+"countService":888888
 }
 
 

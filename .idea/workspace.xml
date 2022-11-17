@@ -4,10 +4,12 @@
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalOutputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-08-logic_inputs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-logic_inputs_insert.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-13-logic_inputs_insert.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/methods.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +139,10 @@
       <workItem from="1668444956567" duration="7733000" />
       <workItem from="1668499350111" duration="294000" />
       <workItem from="1668499727042" duration="5594000" />
-      <workItem from="1668531975450" duration="5883000" />
+      <workItem from="1668531975450" duration="6868000" />
+      <workItem from="1668597207642" duration="33000" />
+      <workItem from="1668672195874" duration="2991000" />
+      <workItem from="1668697896243" duration="393000" />
     </task>
     <servers />
   </component>
