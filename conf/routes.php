@@ -35,6 +35,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/logicalInputs/inputProgramsListFirst'                                        => [
+        'controller' => 'logicalInputs',
+        'action'     => 'inputProgramsListFirst',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/logicalOutputs/list'                                        => [
         'controller' => 'logicalOutputs',
         'action'     => 'loadList',
@@ -48,7 +54,7 @@ return [
         'pathType'   => 1,
     ],
     'api/logicalOutputs/edit'                                        => [
-        'controller' => 'logicalInputs',
+        'controller' => 'logicalOutputs',
         'action'     => 'editStream',
         'auth'       => true,
         'pathType'   => 1,

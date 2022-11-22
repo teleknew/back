@@ -64,6 +64,7 @@ class LogicalInputs
         //Helpers::get_pr('Вроде сохранили');
         return $Result;
     }
+
     public function loadPrograms($Data/*, $UserInfo*/)
     {
         //print_r($Data['id']);
@@ -402,7 +403,7 @@ class LogicalInputs
                                   "idIpInputs"  =:idIpInputs,
                                   "mode"  =:mode,
                                   "activeInput"  =:activeInput,
-                                  \"countService\" =:countService
+                                  "countService" =:countService
                             WHERE id = :id
                             RETURNING id';
 
@@ -423,9 +424,37 @@ class LogicalInputs
 
             $ResultQuery = $db->queryFetched($UpdateQuery, $UpdateParams);
 
+            $UpdateIpInputsQuery = 'UPDATE interface.ip_inputs SET
+                                "namePort" = :namePort,
+                                "idPhysicalInput" = :idPhysicalInput ,
+                                "ipType" = :ipType,
+                                "ipVersion" = :ipVersion,
+                                "ipPort" = :ipPort,
+                                "ipNumberPort" = :ipNumberPort,
+                                "tcpUdpPort" = :tcpUdpPort,
+                                encapsulation = :encapsulation,
+                                "host" = :host
+                        WHERE id = :id
+                        RETURNING id;';
+
+            $UpdateIpInputsQueryParams = [
+                ":id" => $Data['IP'][0]['id'],
+                ":namePort" => $Data['IP'][0]['namePort'],
+                ":idPhysicalInput" => $Data['IP'][0]['idPhysicalInput'],
+                ":ipType" => $Data['IP'][0]['ipType'],
+                ":ipVersion" => $Data['IP'][0]['ipVersion'],
+                ":ipPort" => $Data['IP'][0]['ipPort'],
+                ":ipNumberPort" => $Data['IP'][0]['ipNumberPort'],
+                ":tcpUdpPort" => $Data['IP'][0]['tcpUdpPort'],
+                ":encapsulation" => $Data['IP'][0]['encapsulation'],
+                ":host" => $Data['IP'][0]['host']
+            ];
+
+            $ResultIpQuery = $db->queryFetched($UpdateIpInputsQuery, $UpdateIpInputsQueryParams);
+
             $db->commit();
 
-            if(count($ResultQuery))
+            if(count($ResultQuery) && count($ResultIpQuery))
                 $Result['Result'] = true;
         }
         catch(\Exception $e)
@@ -436,7 +465,7 @@ class LogicalInputs
                 $db->rollback();
             }
 
-            $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n" /*SQL: {$InsertResponseQuery}.\n Params: ".print_r($InsertResponseParams,true)*/;
+            $Result['Errors'] = "Ошибка в запросе UPDATE.\n SQL Error: {$e->getMessage()}.\n" /*SQL: {$InsertResponseQuery}.\n Params: ".print_r($InsertResponseParams,true)*/;
         }
 
         return $Result;
@@ -525,5 +554,56 @@ class LogicalInputs
 
         return $Result;
     }
+
+    /**
+     *
+     * Создаем Граф, входное устройство и возвращаем тут же обратно спиок программ.
+     * Т.е. данную функцию используем только при первом создание транспортного потока
+     *
+     */
+
+    public function getInputProgramsListFirst($Data/*, $UserInfo*/){
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+        try {
+            $stream = (new LogicalInputs())->createStream($Data/*, $UserInfo*/);
+            //Helpers::get_pr($stream);
+            if(!$stream["Result"])
+                throw new \Exception("ERROR: " . $stream['Errors']);
+            //Helpers::get_pr('graphGuid - ' . $stream['Result'][0]['graphGuid']);
+            //Helpers::get_pr($stream['Result'][1]->guid);
+
+            $programsList = (new Inform())
+                ->getGraphInputDeviceProgramList(
+                    [
+                        'graphGuid' => $stream['Result'][0]['graphGuid'],
+                        'deviceGuid' => $stream['Result'][1]->guid,
+                        'getRem' => 1
+                    ]
+                /*, $UserInfo*/);
+            if(!$programsList["Result"])
+                throw new \Exception("ERROR: " . $stream['Errors']);
+
+            $Result['Result'] = [
+                'stream' => $stream['Result'],
+                'programsList' => $programsList['Result'],
+            ];
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    /** делаем функцию редактирования устройства в графе
+     *  создаем такое же устройство, но с отредактированными параметрами.
+     *  если устройство успешно создали,
+     * удаляем старое устройство,
+     */
 
 }
