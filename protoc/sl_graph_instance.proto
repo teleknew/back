@@ -1,70 +1,71 @@
 syntax = "proto3";
 
 import "sl_graph_service.proto";
+package sl;
 
-service sl_graph_instance_proto
+service SLGraphInstanceProto
 {
-    rpc save_graph(sl_empty_proto) returns (sl_graph_proto) {}
-    rpc load_graph(sl_graph_proto) returns (sl_empty_proto) {}
+    rpc save_graph(SLEmptyProto) returns (SLGraphProto) {}
+    rpc load_graph(SLGraphProto) returns (SLEmptyProto) {}
 
-    rpc get_input_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
-    rpc get_output_device_list(sl_empty_proto) returns (sl_device_list_proto) {}
+    rpc get_input_device_list(SLEmptyProto) returns (SLDeviceListProto) {}
+    rpc get_output_device_list(SLEmptyProto) returns (SLDeviceListProto) {}
 
-    rpc add_input_device(sl_device_proto) returns (sl_device_proto) {}
-    rpc delete_input_device(sl_device_proto) returns (sl_empty_proto) {}
+    rpc add_input_device(SLDeviceProto) returns (SLDeviceProto) {}
+    rpc delete_input_device(SLDeviceProto) returns (SLEmptyProto) {}
 
-    rpc add_output_device(sl_device_proto) returns (sl_device_proto) {}
-    rpc delete_output_device(sl_device_proto) returns (sl_empty_proto) {}
-    rpc set_output_device_settings(sl_device_proto) returns (sl_device_proto) {}
+    rpc add_output_device(SLDeviceProto) returns (SLDeviceProto) {}
+    rpc delete_output_device(SLDeviceProto) returns (SLEmptyProto) {}
+    rpc set_output_device_settings(SLDeviceProto) returns (SLDeviceProto) {}
 
-    rpc get_input_program_list(sl_device_proto) returns (sl_input_program_list_proto) {}
-    rpc set_input_program_settings(sl_input_program_proto) returns (sl_input_program_proto) {}
+    rpc get_input_program_list(SLDeviceProto) returns (SLInputProgramListProto) {}
+    rpc set_input_program_settings(SLInputProgramProto) returns (SLInputProgramProto) {}
 
-    rpc clone_input_program(sl_input_program_proto) returns (sl_input_program_proto) {}
+    rpc clone_input_program(SLInputProgramProto) returns (SLInputProgramProto) {}
 
-    rpc add_device_to_program(sl_input_program_device_proto) returns (sl_output_program_proto) {}
-    rpc delete_device_from_program(sl_input_program_device_proto) returns (sl_empty_proto) {}
-    rpc get_output_program_list_from_program(sl_input_program_proto) returns (sl_output_program_list_proto) {}
-    rpc set_output_program_settings(sl_output_program_proto) returns (sl_empty_proto) {}
+    rpc add_device_to_program(SLInputProgramDeviceProto) returns (SLOutputProgramProto) {}
+    rpc delete_device_from_program(SLInputProgramDeviceProto) returns (SLEmptyProto) {}
+    rpc get_output_program_list_from_program(SLInputProgramProto) returns (SLOutputProgramListProto) {}
+    rpc set_output_program_settings(SLOutputProgramProto) returns (SLEmptyProto) {}
 
-    rpc add_encoder_to_program(sl_input_program_encoder_proto) returns (sl_encoder_proto) {}
-    rpc delete_encoder_from_program(sl_input_program_encoder_proto) returns (sl_empty_proto) {}
-    rpc get_encoder_list_from_program(sl_input_program_proto) returns (sl_encoder_list_proto) {}
-    rpc set_encoder_settings(sl_encoder_proto) returns (sl_empty_proto) {}
+    rpc add_encoder_to_program(SLInputProgramEncoderProto) returns (SLEncoderProto) {}
+    rpc delete_encoder_from_program(SLInputProgramEncoderProto) returns (SLEmptyProto) {}
+    rpc get_encoder_list_from_program(SLInputProgramProto) returns (SLEncoderListProto) {}
+    rpc set_encoder_settings(SLEncoderProto) returns (SLEmptyProto) {}
 
-    rpc add_device_to_encoder(sl_encoder_device_proto) returns (sl_output_program_proto) {}
-    rpc delete_device_from_encoder(sl_encoder_device_proto) returns (sl_empty_proto) {}
-    rpc get_output_program_list_from_encoder(sl_encoder_proto) returns (sl_output_program_list_proto) {}
+    rpc add_device_to_encoder(SLEncoderDeviceProto) returns (SLOutputProgramProto) {}
+    rpc delete_device_from_encoder(SLEncoderDeviceProto) returns (SLEmptyProto) {}
+    rpc get_output_program_list_from_encoder(SLEncoderProto) returns (SLOutputProgramListProto) {}
 
-    rpc get_state(sl_empty_proto) returns (sl_graph_proto) {}
-    rpc start(sl_empty_proto) returns (sl_empty_proto) {}
-    rpc stop(sl_empty_proto) returns (sl_empty_proto) {}
+    rpc get_state(SLEmptyProto) returns (SLGraphProto) {}
+    rpc start(SLEmptyProto) returns (SLEmptyProto) {}
+    rpc stop(SLEmptyProto) returns (SLEmptyProto) {}
 
-    rpc start_parsing(sl_empty_proto) returns (sl_empty_proto) {}
-    rpc is_parsing_ready(sl_empty_proto) returns (sl_parsing_state_proto) {}
-    rpc stop_parsing(sl_empty_proto) returns (sl_empty_proto) {}
+    rpc start_parsing(SLEmptyProto) returns (SLEmptyProto) {}
+    rpc is_parsing_ready(SLEmptyProto) returns (SLParsingStateProto) {}
+    rpc stop_parsing(SLEmptyProto) returns (SLEmptyProto) {}
 
-    rpc get_device_statistics(sl_device_proto) returns (sl_statistics_proto) {}
-    rpc get_encoder_statistics(sl_encoder_proto) returns (sl_statistics_proto) {}
+    rpc get_device_statistics(SLDeviceProto) returns (SLStatisticsProto) {}
+    rpc get_encoder_statistics(SLEncoderProto) returns (SLStatisticsProto) {}
 
-    rpc get_affinity_mask(sl_empty_proto) returns (sl_affinity_mask_proto) {}
-    rpc set_affinity_mask(sl_affinity_mask_proto) returns (sl_affinity_mask_proto) {}
+    rpc get_affinity_mask(SLEmptyProto) returns (SLAffinityMaskProto) {}
+    rpc set_affinity_mask(SLAffinityMaskProto) returns (SLAffinityMaskProto) {}
 }
 
-message sl_input_program_device_proto
+message SLInputProgramDeviceProto
 {
-    sl_input_program_proto  input_program   = 1;
-    sl_device_proto         device          = 2;
+    SLInputProgramProto  input_program   = 1;
+    SLDeviceProto         device          = 2;
 }
 
-message sl_input_program_encoder_proto
+message SLInputProgramEncoderProto
 {
-    sl_input_program_proto  input_program   = 1;
-    sl_encoder_proto        encoder         = 2;
+    SLInputProgramProto  input_program   = 1;
+    SLEncoderProto        encoder         = 2;
 }
 
-message sl_encoder_device_proto
+message SLEncoderDeviceProto
 {
-    sl_encoder_proto    encoder = 1;
-    sl_device_proto     device  = 2;
+    SLEncoderProto    encoder = 1;
+    SLDeviceProto     device  = 2;
 }

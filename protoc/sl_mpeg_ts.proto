@@ -1,7 +1,9 @@
 syntax = "proto3";
 
+package sl;
+
 // descriptor_tag = 0x48 (72)
-message sl_service_descriptor_proto     
+message SLServiceDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
@@ -12,7 +14,7 @@ message sl_service_descriptor_proto
 }
 
 // descriptor_tag = 0x40 (64)
-message sl_network_name_descriptor_proto
+message SLNetworkNameDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
@@ -21,22 +23,22 @@ message sl_network_name_descriptor_proto
 }
 
 // descriptor_tag = 0x41 (65)
-message sl_service_list_descriptor_proto
+message SLServiceListDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 
-    message service_proto
+    message ServiceProto
     {
         uint32 service_id = 1;
         uint32 service_type = 2;
     }
 
-    repeated service_proto services = 3;
+    repeated ServiceProto services = 3;
 }
 
 // descriptor_tag = 0x52 (82)
-message sl_stream_identifier_descriptor_proto
+message SLStreamIdentifierDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
@@ -45,7 +47,7 @@ message sl_stream_identifier_descriptor_proto
 }
 
 // descriptor_tag = 0x56 (86)
-message sl_teletext_descriptor_page_proto
+message SLTeletextDescriptorPageProto
 {
     string iso_639_language_code = 1;
     uint32 teletext_type = 2;
@@ -54,7 +56,7 @@ message sl_teletext_descriptor_page_proto
 }
 
 // descriptor_tag = 0x58 (88)
-message sl_local_time_offset_proto
+message SLLocalTimeOffsetProto
 {
     string country_code = 1;
     uint32 country_region_id = 2;
@@ -64,21 +66,21 @@ message sl_local_time_offset_proto
     uint32 next_time_offset = 6;
 }
 
-message sl_local_time_offset_descriptor_proto
+message SLLocalTimeOffsetDescriptorProto
 {
-    repeated sl_local_time_offset_proto local_time_offset = 1;
+    repeated SLLocalTimeOffsetProto local_time_offset = 1;
 }
 
-message sl_teletext_descriptor_proto
+message SLTeletextDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 
-    repeated sl_teletext_descriptor_page_proto pages = 3;
+    repeated SLTeletextDescriptorPageProto pages = 3;
 }
 
 // descriptor_tag = 0x4D (77)
-message sl_short_event_descriptor_proto
+message SLShortEventDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
@@ -89,12 +91,12 @@ message sl_short_event_descriptor_proto
 }
 
 // descriptor_tag = 0x4E (78)
-message sl_extended_event_descriptor_proto
+message SLExtendedEventDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 
-    message item
+    message ItemProto
     {
         string item_description_char = 1;
         string item_char = 2;
@@ -104,173 +106,175 @@ message sl_extended_event_descriptor_proto
     uint32 last_description_number = 4;
     string iso_639_language_code = 5;
 
-    repeated item items = 6;
+    repeated ItemProto items = 6;
 
     string text_char = 7;
 }
 
 // descriptor_tag = 0x55 (85)
-message sl_parental_rating_descriptor_proto
+message SLParentalRatingDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 
-    message rating
+    message RatingProto
     {
         string country_code = 1;
         uint32 rating = 2;
     }
 
-    repeated rating ratings = 3;
+    repeated RatingProto ratings = 3;
 }
 
 // descriptor_tag = 0x83 (131)
-message sl_logical_channel_description_proto
+message SLLogicalChannelDescriptionProto
 {
     uint32  descriptor_tag   = 1;
     uint32  descriptor_length = 2;
 
-    message logical_channel_proto
+    message LogicalChannelProto
     {
         uint32 service_id = 1;
         uint32 visible_service_flag = 2;
         uint32 logical_channel_number = 3;
     }
 
-    repeated logical_channel_proto logical_channels = 3;
+    repeated LogicalChannelProto logical_channels = 3;
 }
 
 // all unknown descriptors
-message sl_unknown_descriptor_proto
+message SLUnknownDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 }
 
-message sl_descriptor_proto
+message SLDescriptorProto
 {
     uint32  descriptor_tag      = 1;
     uint32  descriptor_length   = 2;
 
     oneof data {
-        sl_unknown_descriptor_proto unknown_descriptor = 3;
-        sl_service_descriptor_proto service_descriptor = 4;
-        sl_network_name_descriptor_proto network_name_descriptor = 5;
-        sl_stream_identifier_descriptor_proto stream_identifier_descriptor = 6;
-        sl_teletext_descriptor_proto teletext_descriptor = 7;
-        sl_local_time_offset_descriptor_proto local_time_offset_descriptor = 8;
-        sl_short_event_descriptor_proto short_event_descriptor = 9;
-        sl_extended_event_descriptor_proto extended_event_descriptor = 10;
-        sl_parental_rating_descriptor_proto parental_rating_descriptor = 11;
-        sl_service_list_descriptor_proto service_list_descriptor = 12;
-        sl_logical_channel_description_proto logical_channel_descriptor = 13;
+        SLUnknownDescriptorProto unknown_descriptor = 3;
+        SLServiceDescriptorProto service_descriptor = 4;
+        SLNetworkNameDescriptorProto network_name_descriptor = 5;
+        SLStreamIdentifierDescriptorProto stream_identifier_descriptor = 6;
+        SLTeletextDescriptorProto teletext_descriptor = 7;
+        SLLocalTimeOffsetDescriptorProto local_time_offset_descriptor = 8;
+        SLShortEventDescriptorProto short_event_descriptor = 9;
+        SLExtendedEventDescriptorProto extended_event_descriptor = 10;
+        SLParentalRatingDescriptorProto parental_rating_descriptor = 11;
+        SLServiceListDescriptorProto service_list_descriptor = 12;
+        SLLogicalChannelDescriptionProto logical_channel_descriptor = 13;
     }
 }
 
-message sl_stream_map_proto
+message SLStreamMapProto
 {
     uint32  stream_type             = 1;
     uint32  elementary_PID          = 2;
 
-    repeated sl_descriptor_proto descriptors = 3;
+    repeated SLDescriptorProto descriptors = 3;
 }
 
-message sl_pmt_proto
+message SLPmtProto
 {
     uint32  version_number          = 1;
     uint32  program_number          = 2;
     uint32  pid_pmt                 = 3;
     uint32  PCR_PID                 = 4;
 
-    repeated    sl_descriptor_proto         descriptors = 5;
-    repeated    sl_stream_map_proto         stream_map  = 6;
+    repeated    SLDescriptorProto         descriptors = 5;
+    repeated    SLStreamMapProto         stream_map  = 6;
 }
 
-message sl_program_map_proto
+message SLProgramMapProto
 {
     uint32  program_number    = 1;
     uint32  map_PID           = 2;
 }
 
-message sl_pat_proto
+message SLPatProto
 {
     uint32  version_number                          = 1;
     uint32  transport_stream_id                     = 2;
-    repeated    sl_program_map_proto program_map    = 3;
+    repeated    SLProgramMapProto program_map    = 3;
 }
 
-message sl_input_pat_proto
+message SLInputPatProto
 {
-    sl_pat_proto pat = 1;
-    repeated sl_pmt_proto pmt = 2;
+    SLPatProto pat = 1;
+    repeated SLPmtProto pmt = 2;
 }
 
-message sl_sdt_service_proto
+message SLSdtServiceProto
 {
     uint32  service_id                      = 1;
 
-    repeated    sl_descriptor_proto descriptors = 2;
+    repeated    SLDescriptorProto descriptors = 2;
 }
 
-message sl_sdt_proto
+message SLSdtProto
 {
     uint32  version_number          = 1;
     uint32  transport_stream_id     = 2;
     uint32  original_network_id     = 3;
 
-    repeated    sl_sdt_service_proto sds = 4;
+    repeated    SLSdtServiceProto sds = 4;
 }
 
-message sl_input_sdt_proto
+message SLInputSdtProto
 {
-    sl_sdt_proto actual             = 1;
-    sl_sdt_proto other              = 2;
+    SLSdtProto actual             = 1;
+    SLSdtProto other              = 2;
 }
 
-message sl_tot_proto
-{
-    uint64 UTC_time                     = 1;
-
-    repeated    sl_descriptor_proto descriptors = 2;
-}
-
-message sl_tdt_proto
+message SLTotProto
 {
     uint64 UTC_time                     = 1;
+
+    repeated    SLDescriptorProto descriptors = 2;
 }
 
-message sl_nit_transport_stream_proto
+message SLTdtProto
+{
+    uint64 UTC_time                     = 1;
+}
+
+message SLNitTransportStreamProto
 {
     uint32  transport_stream_id         = 1;
     uint32  original_network_id         = 2;
 
-    repeated    sl_descriptor_proto descriptors = 3;
+    repeated    SLDescriptorProto descriptors = 3;
 }
 
-message sl_nit_proto
+message SLNitProto
 {
     uint32  version_number              = 1;
     uint32  network_id                  = 2;
 
-    repeated    sl_descriptor_proto descriptors = 3;
-    repeated    sl_nit_transport_stream_proto transport_stream = 4;
+    repeated    SLDescriptorProto descriptors = 3;
+    repeated    SLNitTransportStreamProto transport_stream = 4;
 }
 
-message sl_input_nit_proto
+message SLInputNitProto
 {
-    sl_nit_proto actual = 1;
-    sl_nit_proto other  = 2;
+    SLNitProto actual = 1;
+    SLNitProto other  = 2;
 }
 
-message sl_cat_proto
+message SLCatProto
 {
     uint32  version_number = 1;
 
-    repeated    sl_descriptor_proto descriptors = 2;
+    repeated    SLDescriptorProto descriptors = 2;
 }
 
+
+
 // EIT
-message sl_event_info_proto
+message SLEventInfoProto
 {
     uint32 event_id                     = 1;
     uint64 start_time                   = 2;
@@ -278,24 +282,24 @@ message sl_event_info_proto
     uint32 running_status               = 4;
     uint32 free_CA_mode                 = 5;
 
-    repeated    sl_descriptor_proto descriptors = 6;
+    repeated    SLDescriptorProto descriptors = 6;
 }
 
-message sl_eit_proto
+message SLEitProto
 {
     uint32 version_number           = 1;
     uint32 service_id               = 2;
     uint32 transport_stream_id      = 3;
     uint32 original_network_id      = 4;
 
-    repeated    sl_event_info_proto event_info = 5;
+    repeated    SLEventInfoProto event_info = 5;
 }
 
-message sl_input_eit_proto
+message SLInputEitProto
 {
-    sl_eit_proto actual             = 1;
-    sl_eit_proto actual_schedule    = 2;
-    sl_eit_proto other              = 3;
-    sl_eit_proto other_schedule     = 4;
+    SLEitProto actual             = 1;
+    SLEitProto actual_schedule    = 2;
+    SLEitProto other              = 3;
+    SLEitProto other_schedule     = 4;
 }
 //

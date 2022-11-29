@@ -10,6 +10,7 @@ use Sl\SLGraphListProto;
 use Sl\SLGraphProto;
 use Sl\SLGraphServiceProtoClient as protoClient;
 use Sl\SLInputProgramListProto;
+use Sl\SLModelProto;
 use Sl\SLOutputProgramListProto;
 use Sl\SLGraphInputProgramProto;
 use Sl\SLGraphEncoderProto;
@@ -276,7 +277,6 @@ class Remuxer
         return $response;
     }
 
-
         /**
          * Добавляет выходное устройства в Граф
          * @return SLDeviceProto
@@ -289,7 +289,7 @@ class Remuxer
         $graph_device = new SLGraphDeviceProto();
         $graph_device->setGraph($graph);
         $graph_device->setDevice($inputDevice);
-        list($response, $status) = $this->client->add_input_device_to_graph($graph_device)->wait();
+        list($response, $status) = $this->client->add_output_device_to_graph($graph_device)->wait();
         if ($status->code !== \Grpc\STATUS_OK) {
             throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
         }
@@ -309,6 +309,25 @@ class Remuxer
         $graph_device->setGraph($graph);
         $graph_device->setDevice($inputDevice);
         list($response, $status) = $this->client->delete_input_device_from_graph($graph_device)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+
+
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+    public function getRemuxerModel($graphGuid): SLModelProto
+    {
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+
+        list($response, $status) = $this->client->get_remuxer_model($myGraph)->wait();
         if ($status->code !== \Grpc\STATUS_OK) {
             throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
         }

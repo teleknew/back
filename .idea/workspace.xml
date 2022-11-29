@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Models/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/addNit.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Remuxer/Remuxer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/listic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/listic.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/sl_graph_instance.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_graph_instance.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/sl_graph_service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_graph_service.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/sl_mpeg_ts.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_mpeg_ts.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/sl_remuxer_instance.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_remuxer_instance.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/protoc/sl_remuxer_model.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_remuxer_model.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +82,7 @@
       <recent name="D:\a_work\telek\back\conf\db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back\protoc" />
       <recent name="D:\a_work\telek\back\Remuxer" />
     </key>
   </component>
@@ -143,7 +158,21 @@
       <workItem from="1669025724801" duration="9000" />
       <workItem from="1669047636982" duration="2065000" />
       <workItem from="1669119283246" duration="90000" />
-      <workItem from="1669129441687" duration="4585000" />
+      <workItem from="1669129441687" duration="5972000" />
+      <workItem from="1669217052280" duration="38000" />
+      <workItem from="1669221442716" duration="620000" />
+      <workItem from="1669275920436" duration="4898000" />
+      <workItem from="1669306631185" duration="6648000" />
+      <workItem from="1669362259180" duration="17000" />
+      <workItem from="1669367032662" duration="1524000" />
+      <workItem from="1669391952994" duration="7040000" />
+      <workItem from="1669455271755" duration="6332000" />
+      <workItem from="1669548633736" duration="11349000" />
+      <workItem from="1669617916827" duration="6318000" />
+      <workItem from="1669648207223" duration="6961000" />
+      <workItem from="1669711967477" duration="2102000" />
+      <workItem from="1669715756327" duration="6000" />
+      <workItem from="1669738431983" duration="2781000" />
     </task>
     <servers />
   </component>

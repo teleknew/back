@@ -14,7 +14,7 @@ class Helpers
     public static function get_pr($data){
         print_r("<pre>\n");
         print_r($data);
-        print_r("<pre>\n");
+        print_r("</pre>\n");
     }
 
     public static function parameterOrNull($ColumnName,$ParameterName,$Separator)

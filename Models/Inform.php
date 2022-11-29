@@ -58,7 +58,7 @@ class Inform
             foreach ($outputDeviceList->getList() as $outputDevice) {
                 $devices[] = [
                     'name' => $outputDevice->getDisplayName(),
-                    'settings' => $outputDevice->getSettings()
+                    'settings' => json_decode($outputDevice->getSettings())
                 ];
 
                 //Helpers::get_pr(json_decode($outputDevice->serializeToJsonString()));
