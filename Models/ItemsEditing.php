@@ -2,6 +2,7 @@
 
 namespace Models;
 
+use Sl\SLGraphRemuxerModelProto;
 use Remuxer\Remuxer;
 use Helpers\Helpers;
 use Models\Inform;
@@ -13,6 +14,11 @@ use Sl\SLSdtModelProto;
 use Sl\SLTdtModelProto;
 use Sl\SLTotModelProto;
 use Sl\SLSdtsSdsModel;
+use Sl\SLPatModelProto;
+use Sl\SLPmtsModelProto;
+use Sl\SLPmtModelProto;
+use Sl\SLPmtProto;
+use Sl\SLReserveStateProto;
 
 class ItemsEditing
 {
@@ -171,7 +177,7 @@ class ItemsEditing
                 //Helpers::get_pr($items->getServiceId());
                 //Helpers::get_pr($items->getServiceType());
             }
-            Helpers::get_pr($programList->serializeToJsonString());
+            //Helpers::get_pr($programList->serializeToJsonString());
 
             $nit = $programList->getNit();
             //print_r($nit->serializeToJsonString());
@@ -213,10 +219,15 @@ class ItemsEditing
             //Helpers::get_pr($nits);
             //Helpers::get_pr($nits->serializeToJsonString());
 
-            $modelRemuxer = (new Remuxer())->getRemuxerModel($Data['graphGuid']);
 
+
+            $modelRemuxer = (new Remuxer())->getRemuxerModel($Data['graphGuid']);
+            $modelClearRemuxer = (new Remuxer())->getRemuxerModel('84ef501a-5030-4350-89df-75b7df780a79');
             //Helpers::get_pr($modelRemuxer);
-            //Helpers::get_pr($modelRemuxer->serializeToJsonString());
+            Helpers::get_pr("modelRemuxer Пробуем модель прочитать");
+            Helpers::get_pr($modelRemuxer->serializeToJsonString());
+            Helpers::get_pr("modelClearRemuxer Пробуем модель прочитать");
+            Helpers::get_pr($modelClearRemuxer->serializeToJsonString());
             //(new SLNitModelProto)->setActual($nits);
 
             $myNit = new SLNitModelProto;
@@ -247,34 +258,119 @@ class ItemsEditing
             $modelRemuxer->setTot($tot);
 
             /** Прописываем SDT Actual*/
-            // src_dst - источник назначение //versionNumber - надо уточнить у Никиты, что брать
-            foreach ($programList->getSdt()->getActual()->getSds() as $item){
-                Helpers::get_pr($item->getServiceId());
-                /** Вот это дорабатываем и не забыть про Other  */
-            }
-            $sdtSrc = $programList->getSdt()->getActual()->getVersionNumber();
-            $src_dst = new SLPairModel();
-            $src_dst->setFirst($sdtSrc);
-            $src_dst->setSecond($sdtSrc);
-
+            // src_dst - источник назначение
             $actual = new SLSdtsSdsModel();
-            $actual->getSrcDst()[] = $src_dst;
+            foreach ($programList->getSdt()->getActual()->getSds() as $item){
+                $sdtSrc = $item->getServiceId();
+                $src_dst = new SLPairModel();
+                $src_dst->setFirst($sdtSrc);
+                $src_dst->setSecond($sdtSrc);
+                $actual->getSrcDst()[] = $src_dst;
+            }
 
             $sdt = new SLSdtModelProto();
             $sdt->getActual()[$Data['deviceGuid']] = $actual;
             //$modelRemuxer->setSdt($sdt);
 
             /** Прописываем SDT Other*/
-            // src_dst - источник назначение //versionNumber - надо уточнить у Никиты, что брать
-            $sdtSrc = $programList->getSdt()->getOther()->getVersionNumber();
-            $src_dst->setFirst($sdtSrc);
-            $src_dst->setSecond($sdtSrc);
-
+            // src_dst - источник назначение
             $other = new SLSdtsSdsModel();
-            $other->getSrcDst()[] = $src_dst;
+            foreach($programList->getSdt()->getOther()->getSds() as $item){
+                $sdtSrc = $item->getServiceId();
+                $src_dst = new SLPairModel();
+                $src_dst->setFirst($sdtSrc);
+                $src_dst->setSecond($sdtSrc);
+                $other->getSrcDst()[] = $src_dst;
+            }
 
             $sdt->getOther()[$Data['deviceGuid']] = $other;
             $modelRemuxer->setSdt($sdt);
+
+            /** добавляем PAT->PMT */
+            $pat = new SLPatModelProto();
+            $pmts = new SLPmtsModelProto();
+            $i=0;
+            foreach ($programList->getPat()->getPmt() as $item){
+                //Helpers::get_pr($item);
+                $pmt = new SLPmtModelProto();
+                $src = new SLPairModel();
+                //if($item->getPidPmt() != 1120)
+                {
+                    $src->setFirst($item->getPidPmt());
+                    $src->setSecond($item->getProgramNumber());
+                    $pmt->setSrc($src);
+                    $dst = new SLPairModel();
+                    $dst->setFirst($item->getPidPmt());
+                    $dst->setSecond($item->getProgramNumber());
+                    $pmt->setDst($dst);
+                }
+
+                //$pmt->setReserve(SLReserveStateProto::sl_normal); //уточнить у Никиты
+                $pmt->setReserve(0); //уточнить у Никиты
+                //$pmt->setStatus(1);  //уточнить у Никиты
+
+                $pidPmt=[];
+                foreach($item->getStreamMap() as $pid){
+                    //if($pid != 1120)
+                    {
+                        //Helpers::get_pr($pid->getElementaryPID());
+                        $pidPmt[$pid->getElementaryPID()] = $pid->getElementaryPID();
+                    }
+                    //break;
+                }
+
+                //Helpers::get_pr($pmt->getStreams());
+
+                $pmt->setStreams($pidPmt);
+
+                $pmt->setAutoToReserve(1);
+
+                $pmts->getPmts()[] = $pmt;
+
+                //if($i=2)
+                   // break;
+                $i++;
+            }
+
+            $pat->setInputs([$Data['deviceGuid'] => $pmts]);
+
+            $modelRemuxer->setPat($pat);
+
+            //Helpers::get_pr($modelRemuxer->serializeToJsonString());
+
+
+            $graphRemuxerModelProto = new SLGraphRemuxerModelProto();
+
+            $graph = (new Remuxer())->getGraphGuid($Data['graphGuid']);
+            $graphRemuxerModelProto->setGraph($graph);
+            $graphRemuxerModelProto->setModel($modelClearRemuxer);
+            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+
+            $graphRemuxerModelProto->setModel($modelRemuxer);
+
+            Helpers::get_pr("Пытаюсь загрузить modelRemuxer");
+            Helpers::get_pr($modelRemuxer->serializeToJsonString());
+
+            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+
+            //Helpers::get_pr($itog);
+
+            //$start = (new Remuxer())->graphStart($Data['graphGuid']);
+
+            //Helpers::get_pr($start);
+
+            //$stop = (new Remuxer())->stopGraph($Data['graphGuid']);
+
+            //Helpers::get_pr($stop);
+
+            //$graphLog = (new Remuxer())->getGraphLog($Data['graphGuid']);
+
+            //Helpers::get_pr(json_decode($graphLog->serializeToJsonString()));
+
+            //$getRemuxerStatistics = (new Remuxer())->getRemuxerStatistics($Data['graphGuid']);
+
+            //Helpers::get_pr($getRemuxerStatistics->serializeToJsonString());
+
 
             $Result['Result'] = json_decode($modelRemuxer->serializeToJsonString());
         }
@@ -298,6 +394,56 @@ class ItemsEditing
         ];
         try {
             $inputDevice = (new Remuxer())->deleteInputDeviceFromGraph($Data['graphGuid'], $Data['inputDeviceGuid']);
+            $Result['Result'] = true;
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function startGraph($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        $Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
+
+        try {
+            $inputDevice = (new Remuxer())->graphStart($Data['graphGuid']);
+            $Result['Result'] = true;
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function stopGraph($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        $Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
+
+        try {
+            $inputDevice = (new Remuxer())->stopGraph($Data['graphGuid']);
             $Result['Result'] = true;
         }
         catch(\Exception $e)

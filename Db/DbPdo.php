@@ -62,13 +62,13 @@ class DbPdo /*implements DbInterface*/
         //print_r ("Зашли в конструктор DbPdo()\n<br><br>");
 
         /** @var string название базы данных */
-        $dbname = $_ENV["POSTGRES_DB"];
+        //$dbname = $_ENV["POSTGRES_DB"];
         /** @var string имя пользователя */
-        $username = $_ENV["POSTGRES_USER"];
+        //$username = $_ENV["POSTGRES_USER"];
         /** @var string пароль пользователя */
-        $password = $_ENV["POSTGRES_PASSWORD"];
+        //$password = $_ENV["POSTGRES_PASSWORD"];
         /** @var string адрес базы данных */
-        $host = $_ENV["POSTGRES_HOST"];
+        //$host = $_ENV["POSTGRES_HOST"];
 
         /** @var string название базы данных */
         $dbname = 'new';
@@ -78,7 +78,7 @@ class DbPdo /*implements DbInterface*/
         $password = 'root';
         /** @var string адрес базы данных */
         $host = 'postgres';
-        $host = '127.0.0.1';
+        //$host = '127.0.0.1';
         /** @var int порт доступа к базе данных */
         $port = 5432;
         /** @var array дополнительные опции соединения с базой данных */

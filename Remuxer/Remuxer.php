@@ -334,4 +334,89 @@ class Remuxer
         return $response;
     }
 
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+    public function setRemuxerModel($modelRemuxer)
+    {
+        /** получение конкретного графа по Guid начало */
+        //$myGraph = $this->getGraphGuid($graphGuid);
+
+        list($response, $status) = $this->client->set_remuxer_model($modelRemuxer)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+
+    public function graphStart($graphGuid)
+    {
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+        list($response, $status) = $this->client->start_graph($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+
+    public function getGraphLog($graphGuid)
+    {
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+        list($response, $status) = $this->client->get_graph_log($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+
+    public function stopGraph($graphGuid)
+    {
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+        list($response, $status) = $this->client->stop_graph($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * Возврщает что-то Графа
+     * @return
+     * или выкидываем исключение @throws \Exception
+     */
+
+    public function getRemuxerStatistics($graphGuid)
+    {
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+        list($response, $status) = $this->client->get_remuxer_statistics($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
 }

@@ -94,4 +94,44 @@ class ItemsEditingController extends Controller{
                 break;
         }
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function startGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->startGraph($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function stopGraphAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->stopGraph($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
 }

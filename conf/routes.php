@@ -131,6 +131,18 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/edit/startGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'startGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/edit/stopGraph'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'stopGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/manualCorrection/list'                                        => [
         'controller' => 'manualCorrection',
         'action'     => 'loadList',

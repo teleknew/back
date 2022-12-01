@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/addNit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/examples/test.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Remuxer/Remuxer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/listic.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/listic.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/sl_graph_instance.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_graph_instance.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/sl_graph_service.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_graph_service.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/sl_mpeg_ts.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_mpeg_ts.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/sl_remuxer_instance.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_remuxer_instance.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/protoc/sl_remuxer_model.proto" beforeDir="false" afterPath="$PROJECT_DIR$/protoc/sl_remuxer_model.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-2-ip_inputs_insert.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-logic_inputs_insert.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +169,13 @@
       <workItem from="1669648207223" duration="6961000" />
       <workItem from="1669711967477" duration="2102000" />
       <workItem from="1669715756327" duration="6000" />
-      <workItem from="1669738431983" duration="2781000" />
+      <workItem from="1669738431983" duration="6138000" />
+      <workItem from="1669793780665" duration="6918000" />
+      <workItem from="1669826900124" duration="7098000" />
+      <workItem from="1669877307196" duration="2697000" />
+      <workItem from="1669886297767" duration="7150000" />
+      <workItem from="1669895490665" duration="11524000" />
+      <workItem from="1669918242708" duration="2323000" />
     </task>
     <servers />
   </component>

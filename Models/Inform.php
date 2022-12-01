@@ -95,6 +95,7 @@ class Inform
             $graphs = [];
 
             foreach ($outputGraphs->getList() as $outputGraph) {
+                //Helpers::get_pr($outputGraph->serializeToJsonString());
                 $graphs[] = [
                     'name' => $outputGraph->getName(),
                     'guid' => $outputGraph->getGuid(),
