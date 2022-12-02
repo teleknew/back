@@ -344,14 +344,15 @@ class ItemsEditing
             $graph = (new Remuxer())->getGraphGuid($Data['graphGuid']);
             $graphRemuxerModelProto->setGraph($graph);
             $graphRemuxerModelProto->setModel($modelClearRemuxer);
-            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+            //$itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
 
             $graphRemuxerModelProto->setModel($modelRemuxer);
 
             Helpers::get_pr("Пытаюсь загрузить modelRemuxer");
             Helpers::get_pr($modelRemuxer->serializeToJsonString());
+            Helpers::get_pr($graphRemuxerModelProto->serializeToJsonString());
 
-            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+            //$itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
 
             //Helpers::get_pr($itog);
 
@@ -414,8 +415,8 @@ class ItemsEditing
             "Errors" => "",
             "Result" => false
         ];
-
-        $Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
+        
+        //$Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
 
         try {
             $inputDevice = (new Remuxer())->graphStart($Data['graphGuid']);
@@ -440,7 +441,7 @@ class ItemsEditing
             "Result" => false
         ];
 
-        $Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
+        //$Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
 
         try {
             $inputDevice = (new Remuxer())->stopGraph($Data['graphGuid']);
