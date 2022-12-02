@@ -415,7 +415,7 @@ class ItemsEditing
             "Errors" => "",
             "Result" => false
         ];
-        
+
         //$Data['graphGuid'] = '43f44e96-f0fd-4146-94ac-992bd7223403';
 
         try {
