@@ -584,8 +584,8 @@ class LogicalInputs
                         'getRem' => 1
                     ]
                 /*, $UserInfo*/);
-            if(!$programsList["Result"])
-                throw new \Exception("ERROR: " . $stream['Errors']);
+            if($programsList["Errors"])
+                throw new \Exception("ERROR: " . $programsList['Errors']);
 
             $Result['Result'] = [
                 'stream' => $stream['Result'],

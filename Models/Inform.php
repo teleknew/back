@@ -4,6 +4,7 @@ namespace Models;
 
 use Remuxer\Remuxer;
 use Helpers\Helpers;
+use Sl\SLPairModel;
 
 class Inform
 {
@@ -167,15 +168,34 @@ class Inform
         ];
 
         try {
-            $graphInputDevicePrograms = (new Remuxer())->getInputProgramList($Data['graphGuid'], $Data['deviceGuid'], $Data['getRem']);
 
-            //print_r($graphInputDevicePrograms->serializeToJsonString());
+            for($i=0; $i<=10; $i++) {
+                $graphInputDevicePrograms = (new Remuxer())->getInputProgramList($Data['graphGuid'], $Data['deviceGuid'], $Data['getRem']);
 
-            $Result['Result'] = json_decode($graphInputDevicePrograms->serializeToJsonString());
+                $Result['Result']['stream']= json_decode($graphInputDevicePrograms->serializeToJsonString());
+
+                //$Result['Result']['stream'] = json_decode((new SLPairModel())->serializeToJsonString());
+
+                //Helpers::get_pr($Result['Result']['stream']->pat->pat->transportStreamId);
+
+                $Result['Result']['streamCount'] = $i;
+
+                if (!$Result['Result']['stream']->pat->pat->transportStreamId) {
+                    //Helpers::get_pr("Объект пустой");
+                    if($i==9){
+                        throw new \Exception("ERROR: Не получили получили транспортный поток за 10 секунд" . $graphInputDevicePrograms->serializeToJsonString());
+                    }
+
+                } else {
+                    //Helpers::get_pr("Объект полный");
+                    break;
+                }
+                sleep(1);
+            }
         }
         catch(\Exception $e)
         {
-            $Result['Errors'] = "Ошибка!: {$e->getMessage()}.\n";
+            $Result['Errors'] = "Ошибка с транспортным потоком!: {$e->getMessage()}.\n";
         }
 
         return $Result;
