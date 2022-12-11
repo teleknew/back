@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/conf/db/2022-12-09-ip_outputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalOutputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +64,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nikita/grpc-php1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/conf/db" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -63,11 +73,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back\conf\db" />
       <recent name="D:\a_work\telek\back" />
       <recent name="D:\a_work\telek\back\Controllers" />
       <recent name="D:\a_work\telek\back\Remuxer" />
       <recent name="D:\a_work\telek\back\Models" />
-      <recent name="D:\a_work\telek\back\conf\db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\a_work\telek\back\protoc" />
@@ -169,7 +179,13 @@
       <workItem from="1669918242708" duration="3495000" />
       <workItem from="1669970818079" duration="751000" />
       <workItem from="1669972781261" duration="2662000" />
-      <workItem from="1670066236185" duration="8817000" />
+      <workItem from="1670066236185" duration="9502000" />
+      <workItem from="1670228775591" duration="67000" />
+      <workItem from="1670495983215" duration="785000" />
+      <workItem from="1670570743813" duration="1953000" />
+      <workItem from="1670598580585" duration="6472000" />
+      <workItem from="1670670658213" duration="7612000" />
+      <workItem from="1670753561891" duration="11817000" />
     </task>
     <servers />
   </component>

@@ -17,6 +17,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/logicalOutputs/createOutput'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'createOutputStream',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/logicalInputs/edit'                                        => [
         'controller' => 'logicalInputs',
         'action'     => 'editStream',
@@ -140,6 +146,18 @@ return [
     'api/edit/stopGraph'                                        => [
         'controller' => 'itemsEditing',
         'action'     => 'stopGraph',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/edit/loadModelRemuxer'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'loadModelRemuxer',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/logicalOutputs/addInputDevice_ModelRemuxer'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'addInputDevice_ModelRemuxer',
         'auth'       => true,
         'pathType'   => 1,
     ],

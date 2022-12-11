@@ -22,11 +22,11 @@ class Helpers
         return "({$ColumnName} {$Separator} :{$ParameterName} OR :{$ParameterName} IS NULL)";
     }
 
-    public static function getTsNumber(){
+    public static function getTsNumber($table = 'logic_inputs'){
 
         $db = DbPdo::getInstance();
 
-        $Select = 'SELECT MAX("tsNumber") FROM interface.logic_inputs;';
+        $Select = 'SELECT MAX("tsNumber") FROM interface.'.$table.';';
 
         $SelectResults = $db->queryFetched($Select);
 

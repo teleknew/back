@@ -25,7 +25,25 @@ class LogicalOutputsController extends Controller{
 
     }
 
-    public function createStreamAction()
+    public function createOutputStreamAction()
+    {
+        switch ($this->request['method']) {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new LogicalOutputs())->createOutputStream($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+
+        }
+    }
+
+
+    public function addInputDevice_ModelRemuxerAction()
     {
         switch($this->request['method'])
         {
@@ -34,7 +52,7 @@ class LogicalOutputsController extends Controller{
                 /*$User = new User();
                 $UserInfo = $User->getUserParams();*/
 
-                $Result = ((new LogicalOutputs())->createStream($this->request['body']/*,$UserInfo*/));
+                $Result = ((new LogicalOutputs())->addInputDevice_ModelRemuxer($this->request['body']/*,$UserInfo*/));
 
                 $this->return($Result);
 

@@ -10,5 +10,6 @@ CREATE TABLE interface.ip_inputs (
                                      "tcpUdpPort" varchar NULL,
                                      encapsulation varchar NULL,
                                      host varchar NULL,
+                                     guid uuid NULL,
                                      CONSTRAINT ip_inputs_pk PRIMARY KEY (id)
 );

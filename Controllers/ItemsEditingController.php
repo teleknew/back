@@ -134,4 +134,25 @@ class ItemsEditingController extends Controller{
                 break;
         }
     }
+
+    /**
+     * @throws \Exception
+     */
+    public function loadModelRemuxerAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->loadModelRemuxer($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
+
 }

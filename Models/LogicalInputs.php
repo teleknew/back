@@ -298,7 +298,8 @@ class LogicalInputs
                                     :tcpUdpPort,
                                     :encapsulation,
                                     :host
-                                    )";
+                                    )
+                                    RETURNING id;";
 
                 $InsertIpInputsQueryParams = [
                     ":idIpInputs" => $ResultInsertStreamQuery[0]['id'],
@@ -313,7 +314,7 @@ class LogicalInputs
                     ":host" => $Data['IP'][0]['host']
                 ];
 
-                $db->queryFetched($InsertIpInputsQuery, $InsertIpInputsQueryParams);
+                $ResultInsertIpInputQuery = $db->queryFetched($InsertIpInputsQuery, $InsertIpInputsQueryParams);
 
             }
 
@@ -326,7 +327,7 @@ class LogicalInputs
             if(!$graphResult["Result"])
                 throw new \Exception("ERROR: " . $graphResult['Errors']);
 
-            //** Добавить в БД uuid графа. Посомтреть куда можно добавить uuid  **/
+            /** Добавить в БД uuid графа. Посомтреть куда можно добавить uuid  **/
 
             $UpdateStreamQuery = 'UPDATE interface.logic_inputs SET
 												"graphUuid" = :graphUuid
@@ -344,8 +345,20 @@ class LogicalInputs
                 'ip2' =>  $Data['IP'][0]['ipPort']
             ];
             $deviceResult = (new ItemsEditing())->addInputRawToGraph($data);
+            //Helpers::get_pr($deviceResult);
             if(!$deviceResult['Result'])
                 throw new \Exception("ERROR: " . $deviceResult['Errors']);
+
+            /** Добавить в БД uuid входного устройства. **/
+
+            $UpdateIpInputQuery = 'UPDATE interface.ip_inputs SET
+												"guid" = :guid
+											WHERE id = :id;';
+            $UpdateParams = [
+                ":guid" => $deviceResult['Result']->guid,
+                ":id" => $ResultInsertIpInputQuery[0]['id']
+            ];
+            $db->queryFetched($UpdateIpInputQuery,$UpdateParams);
 
             $db->commit();
 
@@ -554,6 +567,8 @@ class LogicalInputs
 
         return $Result;
     }
+
+
 
     /**
      *
