@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/conf/db/2022-12-09-ip_outputs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/LogicalOutputsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helpers/Helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/Helpers/Helpers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/LogicalInputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalInputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/LogicalOutputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-10-13-1-ip_inputs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +173,7 @@
       <workItem from="1670570743813" duration="1953000" />
       <workItem from="1670598580585" duration="6472000" />
       <workItem from="1670670658213" duration="7612000" />
-      <workItem from="1670753561891" duration="11817000" />
+      <workItem from="1670753561891" duration="12526000" />
     </task>
     <servers />
   </component>
