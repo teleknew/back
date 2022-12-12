@@ -14,5 +14,7 @@ CREATE TABLE interface.logic_outputs (
                                          "countService" int4 NULL,
                                          "idOutput" int4 NULL,
                                          "graphUuid" uuid NULL,
+                                         "originalNetworkId" int4 NULL,
+                                         "networkId" int4 NULL,
                                          CONSTRAINT logic_outputs_pk PRIMARY KEY (id)
 );

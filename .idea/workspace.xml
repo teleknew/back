@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Db/DbPdo.php" beforeDir="false" afterPath="$PROJECT_DIR$/Db/DbPdo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/LogicalOutputs.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/LogicalOutputs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" beforeDir="false" afterPath="$PROJECT_DIR$/conf/db/2022-11-01-logic_outputs.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/conf/db" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../work/np/easapr-sd" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -173,7 +176,8 @@
       <workItem from="1670570743813" duration="1953000" />
       <workItem from="1670598580585" duration="6472000" />
       <workItem from="1670670658213" duration="7612000" />
-      <workItem from="1670753561891" duration="12526000" />
+      <workItem from="1670753561891" duration="13708000" />
+      <workItem from="1670832760939" duration="2762000" />
     </task>
     <servers />
   </component>

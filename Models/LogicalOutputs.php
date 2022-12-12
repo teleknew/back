@@ -22,32 +22,26 @@ class LogicalOutputs
         try {
             if ($Data['get_data'] == 'all') {
 
-                $Select = 'SELECT * FROM interface.logic_inputs WHERE id > :id order by id';
+                $Select = 'SELECT * FROM interface.logic_outputs WHERE id > :id order by id';
                 $SelectParams = [
                     ":id" => 0
                 ];
 
                 $db = DbPdo::getInstance();
                 $SelectResults = $db->queryFetched($Select, $SelectParams);
-
-                $Result['Result'] = [];
+                //Helpers::get_pr($SelectResults);
 
                 foreach($SelectResults as $SelectResult){
                     if($SelectResult['sourceType'] == 'IP') {
-                        $Select = 'SELECT * FROM interface.ip_inputs WHERE "idIpInputs" = :idIpInputs';
+                        $Select = 'SELECT * FROM interface.ip_outputs WHERE "idIpOutputs" = :id';
                         $SelectParams = [
-                            ":idIpInputs" => $SelectResult['idIpInputs']
+                            ":id" => $SelectResult['id']
                         ];
 
                         $SelectRes = $db->queryFetched($Select, $SelectParams);
 
                         $SelectResult['IP'] = $SelectRes;
                     }
-                    /*$Result['Result'][] = [
-                        'id' => $SelectResType['id'],
-                        'description' => $SelectResType['description'],
-                        'ports' => $SelectRes
-                    ];*/
 
                     $Result['Result'][] = $SelectResult;
                 }
@@ -231,7 +225,9 @@ class LogicalOutputs
                                 \"idIpOutputs\", 
                                 \"mode\", 
                                 \"activeOutput\", 
-                                \"countService\")
+                                \"countService\",
+                                \"originalNetworkId\",
+                                \"networkId\")
                                 VALUES
                                  (
                                   :tsNumber,
@@ -245,7 +241,9 @@ class LogicalOutputs
                                   :idIpOutputs,
                                   :mode,
                                   :activeOutput,
-                                  :countService
+                                  :countService,
+                                  :originalNetworkId,
+                                  :networkId
                                   )
                                   RETURNING id;";
 
@@ -262,7 +260,9 @@ class LogicalOutputs
                 ":idIpOutputs" => $Data['idIpOutputs'],
                 ":mode" => $Data['mode'],
                 ":activeOutput" => $Data['activeOutput'],
-                ":countService" => $Data['countService']
+                ":countService" => $Data['countService'],
+                ":originalNetworkId" => $Data['originalNetworkId'],
+                ":networkId" => $Data['networkId']
             ];
 
             $ResultInsertStreamQuery = $db->queryFetched($InsertStreamQuery, $InsertStramParams);
