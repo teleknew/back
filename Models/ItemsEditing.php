@@ -186,6 +186,8 @@ class ItemsEditing
         ];
         try {
 
+            //Helpers::get_pr($Data['inputDevices'][0]);
+
             /** Что Должно получится смотрим в моем json готовом
              *
              * и в принципе никита тоже прислал готовый json
@@ -267,7 +269,7 @@ class ItemsEditing
             $myNit = new SLNitModelProto;
             //Helpers::get_pr('myNit');
             //$myNit->getActual()[$Data['deviceGuid']] = $nits;
-            $myNit->getActual()[key($Data['nit']['actual'])] = $nits;
+            $myNit->getActual()[$Data['inputDevices'][0]] = $nits;
 
             //Helpers::get_pr('myNit');
             //Helpers::get_pr($myNit->serializeToJsonString());
@@ -336,7 +338,7 @@ class ItemsEditing
             }
 
             //$pat->setInputs([$Data['deviceGuid'] => $pmts]);
-            $pat->setInputs([key($Data['pat']['inputs']) => $pmts]);
+            $pat->setInputs([$Data['inputDevices'][0] => $pmts]);
 
             $modelRemuxer->setPat($pat);
 
@@ -358,7 +360,7 @@ class ItemsEditing
             }
 
             $sdt = new SLSdtModelProto();
-            $sdt->getActual()[key($Data['sdt']['actual'])] = $actual;
+            $sdt->getActual()[$Data['inputDevices'][0]] = $actual;
             //$modelRemuxer->setSdt($sdt);
 
             /** Прописываем SDT Other*/
@@ -375,17 +377,17 @@ class ItemsEditing
                 }
             }
 
-            $sdt->getOther()[key($Data['sdt']['other'])] = $other;
+            $sdt->getOther()[$Data['inputDevices'][0]] = $other;
             $modelRemuxer->setSdt($sdt);
 
             /** Прописываем TDT */
             $tdt = new SLTdtModelProto();
-            $tdt->setInput($Data['tdt']['input']);
+            $tdt->setInput($Data['inputDevices'][0]);
             $modelRemuxer->setTdt($tdt);
 
             /** Прописываем TOT */
             $tot = new SLTotModelProto();
-            $tot->setInput($Data['tot']['input']);
+            $tot->setInput($Data['inputDevices'][0]);
             $modelRemuxer->setTot($tot);
 
             //Helpers::get_pr($modelRemuxer->serializeToJsonString());

@@ -553,17 +553,20 @@ class LogicalOutputs
             if(!$resultDevice["Result"])
                 throw new \Exception("ERROR: " . $resultDevice['Errors']);
 
+            //Helpers::get_pr($resultDevice['Result']->guid);
+            $Data['inputDevices'][] = $resultDevice['Result']->guid;
+
             $resultLoadModelRemuxer = (new ItemsEditing())->loadModelRemuxer($Data);
             if(!$resultLoadModelRemuxer["Result"])
                 throw new \Exception("ERROR: " . $resultLoadModelRemuxer['Errors']);
             
-            $Result["Result"][] = $resultDevice["Result"];
-            $Result["Result"][] = $resultLoadModelRemuxer["Result"];
+            $Result["Result"]["inputDevices"] = $resultDevice["Result"];
+            $Result["Result"]["outputModel"] = $resultLoadModelRemuxer["Result"];
+            $Result["Result"]["guidInputDevices"] = $Data['inputDevices'];
 
         } catch (\Exception $e) {
 
-            $Result['Errors'] = "Ошибка в запросе insert.\n SQL Error: {$e->getMessage()}.\n" /*SQL: {$InsertResponseQuery}.\n Params: ".print_r($InsertResponseParams,true)*/
-            ;
+            $Result['Errors'] = "Ошибка\n SQL Error: {$e->getMessage()}.\n";
         }
 
         return $Result;
