@@ -42,6 +42,23 @@ class LogicalOutputsController extends Controller{
         }
     }
 
+    public function viewModelAction()
+    {
+        switch ($this->request['method']) {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new LogicalOutputs())->viewModel($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+
+        }
+    }
+
 
     public function addInputDevice_ModelRemuxerAction()
     {

@@ -6,6 +6,8 @@ use Core\DbModel;
 use Helpers\Helpers;
 use Db\DbPdo;
 use Models\ItemsEditing;
+use Remuxer\Remuxer;
+use Sl\SLGraphRemuxerModelProto;
 
 class LogicalOutputs
 {
@@ -567,6 +569,34 @@ class LogicalOutputs
         } catch (\Exception $e) {
 
             $Result['Errors'] = "Ошибка\n SQL Error: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    public function viewModel($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        try {
+
+            $graph = (new Remuxer())->getGraphGuid($Data['graphGuid']);
+
+            $modelRemuxer = (new Remuxer())->getRemuxerModel($Data['graphGuid']);
+
+            //(new Remuxer())->getRemuxerModel('84ef501a-5030-4350-89df-75b7df780a79');
+
+            $Result['Result'][] = json_decode($graph->serializeToJsonString());
+            $Result['Result'][] = json_decode($modelRemuxer->serializeToJsonString());
+            //$Result['Result'][] = $model->serializeToJsonString();
+
+        } catch (\Exception $e) {
+
+            $Result['Errors'] = "Ошибка\n  {$e->getMessage()}.\n";
         }
 
         return $Result;

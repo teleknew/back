@@ -406,9 +406,9 @@ class ItemsEditing
             //Helpers::get_pr($modelRemuxer->serializeToJsonString());
             //Helpers::get_pr($graphRemuxerModelProto->serializeToJsonString());
 
-            //$itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
 
-            //Helpers::get_pr($itog);
+            //Helpers::get_pr($itog->serializeToJsonString());
 
             //$start = (new Remuxer())->graphStart($Data['graphGuid']);
 
@@ -427,7 +427,8 @@ class ItemsEditing
             //Helpers::get_pr($getRemuxerStatistics->serializeToJsonString());
 
 
-            $Result['Result'] = json_decode($graphRemuxerModelProto->serializeToJsonString());
+            $Result['Result']["graph"] = json_decode($graph->serializeToJsonString());
+            $Result['Result']["model"] = json_decode($itog->serializeToJsonString());
         }
         catch(\Exception $e)
         {

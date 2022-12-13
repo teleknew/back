@@ -71,6 +71,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/logicalOutputs/viewModel'                                        => [
+        'controller' => 'logicalOutputs',
+        'action'     => 'viewModel',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/inform/inputDevices'                                        => [
         'controller' => 'remuxer',
         'action'     => 'inputDevices',
