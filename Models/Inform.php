@@ -241,4 +241,53 @@ class Inform
         return $Result;
     }
 
+    public function getRemuxerStatistics($Data/*, $UserInfo*/): array
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        try {
+            $getRemuxerStatistics = (new Remuxer())->getRemuxerStatistics($Data['graphGuid']);
+            //Helpers::get_pr($getRemuxerStatistics->getList()->serializeToJsonString());
+            $Result['Result'] = json_decode($getRemuxerStatistics->serializeToJsonString());
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    public function getRemuxerDeviceStatistics($Data/*, $UserInfo*/): array
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+
+        try {
+            $getRemuxerDeviceStatistics = (new Remuxer())->getRemuxerDeviceStatistics($Data['graphGuid'],$Data['deviceGuid'], $Data['type']);
+            //Helpers::get_pr($getRemuxerDeviceStatistics->getList());
+            //foreach ($getRemuxerDeviceStatistics->getList() as $item){
+            //    Helpers::get_pr($item->serializeToJsonString());
+            //}
+            $Result['Result'] = json_decode($getRemuxerDeviceStatistics->serializeToJsonString());
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    //$getRemuxerStatistics = (new Remuxer())->getRemuxerStatistics($Data['graphGuid']);
+
+    //rpc get_device_statistics(SLGraphDeviceProto) returns (SLStatisticsProto) {}
+
 }

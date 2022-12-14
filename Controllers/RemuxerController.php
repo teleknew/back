@@ -114,4 +114,41 @@ class RemuxerController extends Controller{
         }
 
     }
+
+    public function getRemuxerStatisticsAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->getRemuxerStatistics($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
+
+    public function getRemuxerDeviceStatisticsAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new Inform())->getRemuxerDeviceStatistics($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+
+    }
+
 }

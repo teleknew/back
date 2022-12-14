@@ -113,6 +113,18 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/inform/getRemuxerStatistics'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'getRemuxerStatistics',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
+    'api/inform/getRemuxerDeviceStatistics'                                        => [
+        'controller' => 'remuxer',
+        'action'     => 'getRemuxerDeviceStatistics',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/edit/createGraph'                                        => [
         'controller' => 'itemsEditing',
         'action'     => 'createGraph',

@@ -2,6 +2,7 @@
 
 namespace Remuxer;
 
+use Helpers\Helpers;
 use Sl\SLDeviceListProto;
 use Sl\SLDeviceProto;
 use Sl\SLEmptyProto;
@@ -141,7 +142,7 @@ class Remuxer
         }
 
         if(!$currentDevice)
-            throw new \Exception("ERROR: Нет устройства с Guid " . $deviceGuid . " D Графе Guid " . $graphGuid);
+            throw new \Exception("ERROR: Нет входного устройства с Guid " . $deviceGuid . " В Графе Guid " . $graphGuid);
 
         return $currentDevice;
     }
@@ -199,7 +200,7 @@ class Remuxer
         }
 
         if(!$currentDevice)
-            throw new \Exception("ERROR: Нет устройства с Guid " . $deviceGuid . " D Графе Guid " . $graphGuid);
+            throw new \Exception("ERROR: Нет выходного устройства с Guid " . $deviceGuid . " В Графе Guid " . $graphGuid);
 
         return $currentDevice;
     }
@@ -413,6 +414,32 @@ class Remuxer
         /** получение конкретного графа по Guid начало */
         $myGraph = $this->getGraphGuid($graphGuid);
         list($response, $status) = $this->client->get_remuxer_statistics($myGraph)->wait();
+        if ($status->code !== \Grpc\STATUS_OK) {
+            throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
+        }
+        return $response;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function getRemuxerDeviceStatistics($graphGuid, $deviceGuid, $type = 1)
+    {
+
+        /** получение конкретного графа по Guid начало */
+        $myGraph = $this->getGraphGuid($graphGuid);
+        if($type == 1) {
+            $myDevice = $this->getGraphInputDevice($graphGuid, $deviceGuid);
+        }
+        else{
+            $myDevice = $this->getGraphOutputDevice($graphGuid, $deviceGuid);
+        }
+
+        $graphDevice = new SLGraphDeviceProto();
+        $graphDevice->setGraph($myGraph);
+        $graphDevice->setDevice($myDevice);
+
+        list($response, $status) = $this->client->get_device_statistics($graphDevice)->wait();
         if ($status->code !== \Grpc\STATUS_OK) {
             throw new \Exception("ERROR: " . $status->code . ", " . $status->details);
         }

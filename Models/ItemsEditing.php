@@ -422,7 +422,11 @@ class ItemsEditing
 
             //Helpers::get_pr(json_decode($graphLog->serializeToJsonString()));
 
+            /** Тут две строчки про статистику  **/
             //$getRemuxerStatistics = (new Remuxer())->getRemuxerStatistics($Data['graphGuid']);
+
+            //rpc get_device_statistics(SLGraphDeviceProto) returns (SLStatisticsProto) {}
+
 
             //Helpers::get_pr($getRemuxerStatistics->serializeToJsonString());
 
