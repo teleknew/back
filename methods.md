@@ -475,3 +475,473 @@ http://localhost:8080/api/inform/getRemuxerStatistics
 }
 }
 
+### Список Шаблонов входных устройств в Графе
+http://localhost:8080/api/inform/inputDevices
+
+Делаем пустой GET запрос.
+В ответ получаем json
+
+{
+"Data": null,
+"Errors": "",
+"Result": [
+{
+"name": "Video/Audio test",
+"settings": null
+},
+{
+"name": "FD SDI Capture",
+"settings": [
+{
+"name": "FD Capture",
+"params": [
+{
+"desc": "SDI capture",
+"enum": [
+{
+"FD722 Board 1 Capture 1": "FD722 Board 1 Capture 1"
+},
+{
+"FD722 Board 1 Capture 2": "FD722 Board 1 Capture 2"
+},
+{
+"FD722 Board 2 Capture 1": "FD722 Board 2 Capture 1"
+},
+{
+"FD722 Board 2 Capture 2": "FD722 Board 2 Capture 2"
+},
+{
+"FD788 Board 1 Capture 1": "FD788 Board 1 Capture 1"
+},
+{
+"FD788 Board 1 Capture 2": "FD788 Board 1 Capture 2"
+},
+{
+"FD788 Board 1 Capture 3": "FD788 Board 1 Capture 3"
+},
+{
+"FD788 Board 1 Capture 4": "FD788 Board 1 Capture 4"
+}
+],
+"name": "capture",
+"type": "int",
+"value": "FD722 Board 1 Capture 1"
+},
+{
+"desc": "SDI video mode",
+"enum": [
+{
+"720x576_25i": "0"
+},
+{
+"720x576_30i": "1"
+},
+{
+"1920x1080_25i": "2"
+},
+{
+"1920x1080_30i": "3"
+},
+{
+"1920x1080_50p": "4"
+},
+{
+"1920x1080_60p": "5"
+}
+],
+"name": "mode",
+"type": "int",
+"value": "0"
+},
+{
+"desc": "Number of audio lines",
+"enum": [
+{
+"1": "1"
+},
+{
+"2": "2"
+},
+{
+"3": "3"
+},
+{
+"4": "4"
+},
+{
+"5": "5"
+},
+{
+"6": "6"
+},
+{
+"7": "7"
+},
+{
+"8": "8"
+}
+],
+"name": "number of audio lines",
+"type": "int",
+"value": "3"
+},
+{
+"desc": "Generate frames with no input signal",
+"enum": [
+{
+"No": "0"
+},
+{
+"Yes": "1"
+}
+],
+"name": "generate frames",
+"type": "int",
+"value": "0"
+}
+]
+}
+]
+},
+{
+"name": "Gst UDP Source",
+"settings": [
+{
+"name": "Gst UDP Source",
+"params": [
+{
+"desc": "Host",
+"name": "Host",
+"type": "string",
+"value": "234.5.5.5"
+},
+{
+"desc": "Port",
+"name": "Port",
+"type": "int",
+"value": "20000"
+},
+{
+"desc": "IP address of the streaming computer (netcard via which the streaming is performed).",
+"enum": [
+{
+", []": ""
+},
+{
+"127.0.0.1, [lo]": "lo"
+},
+{
+"172.30.1.211, [ens9f0]": "ens9f0"
+},
+{
+"10.10.1.211, [ens9f2]": "ens9f2"
+},
+{
+"172.17.0.1, [docker0]": "docker0"
+},
+{
+"192.168.48.1, [br-e99bce8e9802]": "br-e99bce8e9802"
+},
+{
+"192.168.64.1, [br-d1cfab258c7d]": "br-d1cfab258c7d"
+}
+],
+"name": "Interface",
+"type": "string",
+"value": ""
+}
+]
+},
+{
+"name": "Demultiplexer",
+"params": [
+{
+"desc": "Output transport stream type.",
+"name": "Latency",
+"type": "int",
+"value": "50"
+}
+]
+}
+]
+},
+{
+"name": "FD ASI Capture",
+"settings": [
+{
+"name": "FD ASI Capture",
+"params": [
+{
+"desc": "ASI capture",
+"enum": [
+{
+"FD722 Board 1 Capture 1": "FD722 Board 1 Capture 1"
+},
+{
+"FD722 Board 1 Capture 2": "FD722 Board 1 Capture 2"
+},
+{
+"FD722 Board 2 Capture 1": "FD722 Board 2 Capture 1"
+},
+{
+"FD722 Board 2 Capture 2": "FD722 Board 2 Capture 2"
+},
+{
+"FD788 Board 1 Capture 1": "FD788 Board 1 Capture 1"
+},
+{
+"FD788 Board 1 Capture 2": "FD788 Board 1 Capture 2"
+},
+{
+"FD788 Board 1 Capture 3": "FD788 Board 1 Capture 3"
+},
+{
+"FD788 Board 1 Capture 4": "FD788 Board 1 Capture 4"
+}
+],
+"name": "capture",
+"type": "int",
+"value": "FD722 Board 1 Capture 1"
+},
+{
+"desc": "Input type TS(default) or T2MI",
+"enum": [
+{
+"TS": "0"
+},
+{
+"T2MI": "1"
+}
+],
+"name": "Input type",
+"type": "int",
+"value": "0"
+},
+{
+"desc": "Index PLP",
+"name": "PLP",
+"type": "int",
+"value": "0"
+}
+]
+}
+]
+},
+{
+"name": "FD ASI Capture (Raw)",
+"settings": [
+{
+"name": "FD ASI Capture",
+"params": [
+{
+"desc": "ASI capture",
+"enum": [
+{
+"FD722 Board 1 Capture 1": "FD722 Board 1 Capture 1"
+},
+{
+"FD722 Board 1 Capture 2": "FD722 Board 1 Capture 2"
+},
+{
+"FD722 Board 2 Capture 1": "FD722 Board 2 Capture 1"
+},
+{
+"FD722 Board 2 Capture 2": "FD722 Board 2 Capture 2"
+},
+{
+"FD788 Board 1 Capture 1": "FD788 Board 1 Capture 1"
+},
+{
+"FD788 Board 1 Capture 2": "FD788 Board 1 Capture 2"
+},
+{
+"FD788 Board 1 Capture 3": "FD788 Board 1 Capture 3"
+},
+{
+"FD788 Board 1 Capture 4": "FD788 Board 1 Capture 4"
+}
+],
+"name": "capture",
+"type": "int",
+"value": "FD722 Board 1 Capture 1"
+},
+{
+"desc": "Input type TS(default) or T2MI",
+"enum": [
+{
+"TS": "0"
+},
+{
+"T2MI": "1"
+}
+],
+"name": "Input type",
+"type": "int",
+"value": "0"
+},
+{
+"desc": "Index PLP",
+"name": "PLP",
+"type": "int",
+"value": "0"
+}
+]
+}
+]
+},
+{
+"name": "SL Network Source",
+"settings": [
+{
+"name": "Gst UDP Source",
+"params": [
+{
+"desc": "Host",
+"name": "Host",
+"type": "string",
+"value": "234.5.5.5"
+},
+{
+"desc": "Port",
+"name": "Port",
+"type": "int",
+"value": "20000"
+},
+{
+"desc": "IP address of the streaming computer (netcard via which the streaming is performed).",
+"enum": [
+{
+"": ""
+},
+{
+"127.0.0.1": "127.0.0.1"
+},
+{
+"172.30.1.211": "172.30.1.211"
+},
+{
+"10.10.1.211": "10.10.1.211"
+},
+{
+"172.17.0.1": "172.17.0.1"
+},
+{
+"192.168.48.1": "192.168.48.1"
+},
+{
+"192.168.64.1": "192.168.64.1"
+}
+],
+"name": "Interface",
+"type": "string",
+"value": ""
+},
+{
+"desc": "Input type TS(default) or T2MI",
+"enum": [
+{
+"TS": "0"
+},
+{
+"T2MI": "1"
+}
+],
+"name": "Input type",
+"type": "int",
+"value": "0"
+},
+{
+"desc": "Index PLP",
+"name": "PLP",
+"type": "int",
+"value": "0"
+}
+]
+},
+{
+"name": "Demultiplexer",
+"params": [
+{
+"desc": "Output transport stream type.",
+"name": "Latency",
+"type": "int",
+"value": "50"
+}
+]
+}
+]
+},
+{
+"name": "SL Network Source (Raw)",
+"settings": [
+{
+"name": "Gst UDP Source",
+"params": [
+{
+"desc": "Host",
+"name": "Host",
+"type": "string",
+"value": "234.5.5.5"
+},
+{
+"desc": "Port",
+"name": "Port",
+"type": "int",
+"value": "20000"
+},
+{
+"desc": "IP address of the streaming computer (netcard via which the streaming is performed).",
+"enum": [
+{
+"": ""
+},
+{
+"127.0.0.1": "127.0.0.1"
+},
+{
+"172.30.1.211": "172.30.1.211"
+},
+{
+"10.10.1.211": "10.10.1.211"
+},
+{
+"172.17.0.1": "172.17.0.1"
+},
+{
+"192.168.48.1": "192.168.48.1"
+},
+{
+"192.168.64.1": "192.168.64.1"
+}
+],
+"name": "Interface",
+"type": "string",
+"value": ""
+},
+{
+"desc": "Input type TS(default) or T2MI",
+"enum": [
+{
+"TS": "0"
+},
+{
+"T2MI": "1"
+}
+],
+"name": "Input type",
+"type": "int",
+"value": "0"
+},
+{
+"desc": "Index PLP",
+"name": "PLP",
+"type": "int",
+"value": "0"
+}
+]
+}
+]
+}
+]
+}
+

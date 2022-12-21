@@ -155,4 +155,24 @@ class ItemsEditingController extends Controller{
         }
     }
 
+    /**
+     * @throws \Exception
+     */
+    public function loadMultiModelRemuxerAction()
+    {
+        switch($this->request['method'])
+        {
+            case "POST":
+
+                /*$User = new User();
+                $UserInfo = $User->getUserParams();*/
+
+                $Result = ((new ItemsEditing())->loadMultiModelRemuxer($this->request['body']/*,$UserInfo*/));
+
+                $this->return($Result);
+
+                break;
+        }
+    }
+
 }

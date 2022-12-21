@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab3b56ca-48ea-4cf8-9eec-68c0872ebc83" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Работа с SLGraph service.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/RemuxerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/RemuxerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Inform.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Inform.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ItemsEditingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/ItemsEditing.php" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ItemsEditing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Remuxer/Remuxer.php" beforeDir="false" afterPath="$PROJECT_DIR$/Remuxer/Remuxer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conf/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/methods.md" beforeDir="false" afterPath="$PROJECT_DIR$/methods.md" afterDir="false" />
     </list>
@@ -74,6 +73,7 @@
       <recent name="D:\a_work\telek\back\Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\a_work\telek\back" />
       <recent name="D:\a_work\telek\back\protoc" />
       <recent name="D:\a_work\telek\back\Remuxer" />
     </key>
@@ -187,7 +187,16 @@
       <workItem from="1670928000465" duration="457000" />
       <workItem from="1670953367394" duration="2406000" />
       <workItem from="1671019254405" duration="1903000" />
-      <workItem from="1671030417446" duration="5857000" />
+      <workItem from="1671030417446" duration="6524000" />
+      <workItem from="1671099457426" duration="1354000" />
+      <workItem from="1671120607764" duration="2952000" />
+      <workItem from="1671184128008" duration="1889000" />
+      <workItem from="1671463184542" duration="13361000" />
+      <workItem from="1671476772459" duration="200000" />
+      <workItem from="1671525546744" duration="29000" />
+      <workItem from="1671547475261" duration="6742000" />
+      <workItem from="1671611038048" duration="3000" />
+      <workItem from="1671635759559" duration="2769000" />
     </task>
     <servers />
   </component>

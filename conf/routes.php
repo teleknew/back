@@ -173,6 +173,12 @@ return [
         'auth'       => true,
         'pathType'   => 1,
     ],
+    'api/edit/loadMultiModelRemuxer'                                        => [
+        'controller' => 'itemsEditing',
+        'action'     => 'loadMultiModelRemuxer',
+        'auth'       => true,
+        'pathType'   => 1,
+    ],
     'api/logicalOutputs/addInputDevice_ModelRemuxer'                                        => [
         'controller' => 'logicalOutputs',
         'action'     => 'addInputDevice_ModelRemuxer',

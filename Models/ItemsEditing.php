@@ -244,9 +244,9 @@ class ItemsEditing
                 //Helpers::get_pr($stream->getTransportStreamId());
                 //Helpers::get_pr($stream->getOriginalNetworkId());
                 //foreach ($stream->getDescriptors() as $descriptor){
-                    //print_r($descriptor->getDescriptorTag());
-                    //print_r($descriptor->getDescriptorLength());
-                    //print_r($descriptor->getServiceListDescriptor());
+                //print_r($descriptor->getDescriptorTag());
+                //print_r($descriptor->getDescriptorLength());
+                //print_r($descriptor->getServiceListDescriptor());
                 //}
 
                 //print_r($stream->serializeToJsonString());
@@ -430,6 +430,200 @@ class ItemsEditing
 
             //Helpers::get_pr($getRemuxerStatistics->serializeToJsonString());
 
+
+            $Result['Result']["graph"] = json_decode($graph->serializeToJsonString());
+            $Result['Result']["model"] = json_decode($itog->serializeToJsonString());
+        }
+        catch(\Exception $e)
+        {
+            $Result['Errors'] = "Ошибка: {$e->getMessage()}.\n";
+        }
+
+        return $Result;
+    }
+
+    /**
+     * @throws \Exception
+     */
+
+    public function loadMultiModelRemuxer($Data/*, $UserInfo*/)
+    {
+        $Result = [
+            "Data" => $Data,
+            "Errors" => "",
+            "Result" => false
+        ];
+        try {
+
+            $modelRemuxer = (new Remuxer())->getRemuxerModel($Data['graphGuid']);
+
+            /** добавляем PAT->PMT */
+            $pat = new SLPatModelProto();
+
+            $i=0;
+
+            foreach ($Data['pat']['inputsMap'] as $myPat)
+            {
+                //Helpers::get_pr($myPat[0]);
+                $pmts = new SLPmtsModelProto();
+                foreach ($myPat[1]['pmtsList'] as $item) {
+
+                    $pmt = new SLPmtModelProto();
+                    $src = new SLPairModel();
+                    $src->setFirst($item['src']['first']);
+                    $src->setSecond($item['src']['second']);
+                    $pmt->setSrc($src);
+
+                    $dst = new SLPairModel();
+                    $dst->setFirst($item['dst']['first']);
+                    $dst->setSecond($item['dst']['second']);
+                    $pmt->setDst($dst);
+
+                    /** Если вдруг не буду работать status, reserv, autoReserv */
+                    
+                    //$pmt->setReserve(SLReserveStateProto::sl_normal); //уточнить у Никиты
+                    //$pmt->setReserve(1); //уточнить у Никиты
+                    //$pmt->setStatus(1);  //уточнить у Никиты
+
+                    $pidPmt = [];
+
+                    foreach ($item['streamsMap'] as $pid)
+                    {
+                        $pidPmt[$pid[0]] = $pid[1];
+                    }
+
+                    $pmt->setReserve($item['reserve']);
+
+                    $pmt->setStatus($item['status']);
+
+                    //Helpers::get_pr($pidPmt);
+
+                    $pmt->setStreams($pidPmt);
+
+                    $pmt->setAutoToReserve($item['autoToReserve']);
+
+                    $pmts->getPmts()[] = $pmt;
+
+                }
+                $pat->getInputs()[$myPat[0]] = $pmts;
+            }
+
+            $modelRemuxer->setPat($pat);
+
+            /** Прописываем TDT */
+            $tdt = new SLTdtModelProto();
+            $tdt->setInput($Data['inputDevices'][0]);
+            $modelRemuxer->setTdt($tdt);
+
+            /** Прописываем TOT */
+            $tot = new SLTotModelProto();
+            $tot->setInput($Data['inputDevices'][0]);
+            $modelRemuxer->setTot($tot);
+
+            /** Прописываем SDT Actual*/
+            $sdt = new SLSdtModelProto();
+            // src_dst - источник назначение
+            foreach ($Data['sdt']['actualMap'] as $act) {
+                $actual = new SLSdtsSdsModel();
+                foreach ($act as $key=>$sd) {
+                    //Helpers::get_pr($key);
+                    //Helpers::get_pr($sd);
+                    foreach ($sd['srcDst'] as $item) {
+                        //$sdtSrc = $item->getServiceId();
+                        $src_dst = new SLPairModel();
+                        $src_dst->setFirst($item['first']);
+                        $src_dst->setSecond($item['second']);
+                        $actual->getSrcDst()[] = $src_dst;
+                    }
+                    $sdt->getActual()[$key] = $actual;
+                }
+            }
+            //$modelRemuxer->setSdt($sdt);
+
+            /** Прописываем SDT Other*/
+            // src_dst - источник назначение
+            foreach ($Data['sdt']['otherMap'] as $oth) {
+                $other = new SLSdtsSdsModel();
+                foreach ($oth as $key=>$sd) {
+                    foreach ($sd['srcDst'] as $item) {
+                        //$sdtSrc = $item->getServiceId();
+                        $src_dst = new SLPairModel();
+                        $src_dst->setFirst($item['first']);
+                        $src_dst->setSecond($item['second']);
+                        $other->getSrcDst()[] = $src_dst;
+                    }
+                    $sdt->getOther()[$key] = $other;
+                }
+            }
+
+            $modelRemuxer->setSdt($sdt);
+
+            /** Прописываем NIT Actual*/
+
+            $myNit = new SLNitModelProto;
+            foreach ($Data['nit']['actualMap'] as $act) {
+
+                $nits = new SLNitsTsModelProto();
+
+                foreach ($act as $key=>$stream) {
+                    foreach ($stream['src'] as $itemNit) {
+                        // src - источник
+                        $src = new SLPairModel();
+                        $src->setFirst($itemNit['first']);
+                        $src->setSecond($itemNit['second']);
+                        // Вроде у RepeatedField так пушатся элементы в PHP, у меня в JS делается через add
+                        $nits->getSrc()[] = $src;
+                    }
+
+                    foreach ($stream['dst'] as $itemNit) {
+                        $dst = new SLPairModel();
+                        $dst->setFirst($itemNit['first']);
+                        $dst->setSecond($itemNit['second']);
+                        $nits->getDst()[] = $dst;
+                    }
+                    $myNit->getActual()[$key] = $nits;
+                }
+            }
+
+            /** Прописываем NIT Other*/
+
+            foreach ($Data['nit']['otherMap'] as $oth) {
+
+                $nits = new SLNitsTsModelProto();
+
+                foreach ($oth as $key=>$stream) {
+                    foreach ($stream['src'] as $itemNit) {
+                        // src - источник
+                        $src = new SLPairModel();
+                        $src->setFirst($itemNit['first']);
+                        $src->setSecond($itemNit['second']);
+                        // Вроде у RepeatedField так пушатся элементы в PHP, у меня в JS делается через add
+                        $nits->getSrc()[] = $src;
+                    }
+
+                    foreach ($stream['dst'] as $itemNit) {
+                        $dst = new SLPairModel();
+                        $dst->setFirst($itemNit['first']);
+                        $dst->setSecond($itemNit['second']);
+                        $nits->getDst()[] = $dst;
+                    }
+                    $myNit->getOther()[$key] = $nits;
+                }
+            }
+
+            $modelRemuxer->setNit($myNit);
+
+            /** ---------------------- */
+
+            $graphRemuxerModelProto = new SLGraphRemuxerModelProto();
+
+            $graph = (new Remuxer())->getGraphGuid($Data['graphGuid']);
+            $graphRemuxerModelProto->setGraph($graph);
+
+            $graphRemuxerModelProto->setModel($modelRemuxer);
+
+            $itog = (new Remuxer())->setRemuxerModel($graphRemuxerModelProto);
+            //Helpers::get_pr($itog->serializeToJsonString());
 
             $Result['Result']["graph"] = json_decode($graph->serializeToJsonString());
             $Result['Result']["model"] = json_decode($itog->serializeToJsonString());
